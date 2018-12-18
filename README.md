@@ -1,1 +1,1 @@
-# exploit-exercises
+# pwnshop
