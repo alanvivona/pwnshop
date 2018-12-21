@@ -4,7 +4,7 @@ sysctl -w kernel.randomize_va_space=0
 
 cd /src
 echo ". . . . . rm all .bin from /src"
-rm (ls /src | grep .bin)
+rm (ls -R /src | grep .bin)
 echo ". . . . . generating new binaries from source"
 for file in (ls /src)
     echo compilling $file...
