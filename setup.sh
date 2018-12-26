@@ -39,7 +39,8 @@ apt-get -y -qq install -y \
   build-essential \
   libc6 \
   libc6-dev \
-  g++-multilib
+  g++-multilib \
+  nasm \
 
 echo ". . . . . Python + pip + virtualenv"
 apt-get -y -qq install python-pip python-dev build-essential 
