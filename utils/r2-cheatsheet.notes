@@ -1,0 +1,35 @@
+// Convert to every format (binary, octal, integer, ascii, etc) : value is 0x41
+// Hex: 
+rax2 -r 0x41
+// Binary:
+rax2 -r 0b010101
+
+// Check file info (with mitigations)
+rabin2 -I filename
+rabin2 -I filename | grep -iE "pic|nx|canary|sanitiz|crypto|static|stripped"
+
+// Check if an op has nullbytes
+// Assemble a single instruction
+rasm2 -a x86 -b 64 'xor rax, rax'
+
+// Produce shellcode from code
+ragg2 -a x86 -b 64 hello.r
+
+// Show assembly produced
+ragg2 -a x86 -b 64 hello.r -s
+
+// Execute shellcode right away (just in time exec)
+ragg2 -a x86 -b 64 hello.r -x
+
+// Specify output format
+ragg2 -a x86 -b 64 hello.r -f [javascript, c, python]
+
+// Debug providing custom input
+r2 -d rarun2 program=shellcode/0x03-dynamic-addressing/0x03-dynamic-addressing.asm.elf64  stdin=(echo "pepe")
+
+// Debug sending a De Bruijn Pattern
+r2 -b 32 -d rarun2 program=filename arg1=(ragg2 -P 300 -r)
+
+// De Bruijn Pattern in \x00 format
+ragg2 -P 300 -z
+
