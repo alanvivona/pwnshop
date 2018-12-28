@@ -1,4 +1,4 @@
-#! fish
+#!/usr/bin/env fish
 
 sysctl -w kernel.randomize_va_space=0
 

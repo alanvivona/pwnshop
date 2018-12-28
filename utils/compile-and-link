@@ -1,3 +1,5 @@
+#!/usr/bin/env fish
+
 set filename $argv[1]
 
 echo "compiling $filename in elf64 format..."
