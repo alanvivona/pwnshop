@@ -1,18 +1,20 @@
 #!/usr/bin/env fish
 
 set filename $argv[1]
+set filenameNoExtention (echo -n $filename | cut -d"." -f1)
 
 echo "compiling $filename in elf64 format..."
-if nasm -f elf64 $filename -o $filename.o
-    if ld $filename.o -o $filename.elf64
-        if rm $filename.o
+
+if nasm -f elf64 $filename -o $filenameNoExtention.o
+    if ld $filenameNoExtention.o -o $filenameNoExtention.elf64
+        if rm $filenameNoExtention.o
             echo -n "done!"
         else
-            echo "FAIL! : rm $filename.o" 1>&2
+            echo "FAIL! : rm $filenameNoExtention.o" 1>&2
         end
     else
-        echo "FAIL! : ld $filename.o -o $filename.elf64" 1>&2
+        echo "FAIL! : ld $filenameNoExtention.o -o $filenameNoExtention.elf64" 1>&2
     end
 else 
-    echo  "FAIL! : nasm -f elf64 $filename -o $filename.o" 1>&2
+    echo  "FAIL! : nasm -f elf64 $filename -o $filenameNoExtention.o" 1>&2
 end
