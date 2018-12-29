@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "ubuntu/trusty32"
+  config.vm.box = "ubuntu/trusty64"
   
   # Machine name
   config.vm.define "pwnshop"
@@ -47,7 +47,7 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   config.vm.synced_folder "./src", "/src"
-  config.vm.synced_folder "./utils", "/usr/local/bin/pwnshop/utils"
+  config.vm.synced_folder "./utils", "/utils"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
