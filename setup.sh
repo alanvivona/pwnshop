@@ -10,10 +10,6 @@ echo "========== ==================== =========="
 # r2pipe
 # r2frida
 # r2dec
-#
-# Takes your custom config file (.radare2rc) from the current directory
-# Copies contents of ./data to /home/r2/data
-#
 
 echo ". . . . . Update + Upgrade"
 # Build and install radare2 on master branch
