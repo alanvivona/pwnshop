@@ -54,6 +54,9 @@ curl -sL https://deb.nodesource.com/setup_10.x | bash -
 apt-get -y -qq update
 apt-get -y -qq install nodejs
 
+echo ". . . . . tldr"
+sudo npm install -g tldr
+
 echo ". . . . . yarn for nodejs"
 curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
@@ -110,20 +113,13 @@ apt-get -y -qq install -y gdb
 # git clone https://github.com/longld/peda.git ~/peda
 # echo "source ~/peda/peda.py" >> ~/.gdbinit
 
-# echo ". . . . . Pwntools"
-# apt-get -y -qq install libssl-dev libffi-dev
-# pip install --upgrade pwntools
-
 echo ". . . . . GEF"
 wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
 
-
 echo ". . . . . Pwntools"
-sudo apt-get -y -qq update
 sudo apt-get -y -qq install binutils python-dev python2.7 python-pip libssl-dev libffi-dev build-essential
-sudo pip install --upgrade pip
-sudo pip install --upgrade pwntools
-
+sudo python2 -m pip install --upgrade pip
+sudo python2 -m pip install --upgrade pwntools
 
 echo ". . . . . Fish shell"
 apt-add-repository -y ppa:fish-shell/release-2
@@ -131,3 +127,15 @@ apt-get -qq update
 apt-get -qq -y install fish
 echo "/usr/bin/fish" | sudo tee -a /etc/shells
 chsh -s /usr/bin/fish
+
+echo ". . . . . . . . . . "
+echo "- CORE DUMP CONFIG -"
+echo ". . . . . . . . . . "
+mkdir -p /tmp/core_dump
+chmod 777 /tmp/core_dump
+echo "/proc/sys/kernel/core_pattern : "
+echo "/tmp/core_dump.%s.%e.%p" | sudo tee /proc/sys/kernel/core_pattern
+echo "/proc/sys/fs/suid_dumpable    : "
+cat /proc/sys/fs/suid_dumpable
+echo "seting : ulimit -c unlimited    "
+ulimit -c unlimited
