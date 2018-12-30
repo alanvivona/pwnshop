@@ -117,6 +117,14 @@ apt-get -y -qq install -y gdb
 echo ". . . . . GEF"
 wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
 
+
+echo ". . . . . Pwntools"
+sudo apt-get -y -qq update
+sudo apt-get -y -qq install binutils python-dev python2.7 python-pip libssl-dev libffi-dev build-essential
+sudo pip install --upgrade pip
+sudo pip install --upgrade pwntools
+
+
 echo ". . . . . Fish shell"
 apt-add-repository -y ppa:fish-shell/release-2
 apt-get -qq update
