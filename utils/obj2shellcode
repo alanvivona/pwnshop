@@ -10,5 +10,5 @@ echo "-- -- -- -- --"
 echo "shellcode lenght:"
 echo $shellcode | sed 's/ //g' | wc -c
 echo "-- -- -- -- --"
-echo $shellcode | sed 's/ /\\x/g' | paste -d '' -s | sed 's/^/"/' | sed 's/$/"/g' | sed 's/\"//g'
+echo $shellcode | sed -e 's/^/\\x/' | sed 's/ /\\x/g' | paste -d '' -s | sed 's/^/"/' | sed 's/$/"/g' | sed 's/\"//g'
 echo "-- -- -- -- --"
