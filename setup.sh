@@ -13,11 +13,11 @@ echo "========== ==================== =========="
 
 echo ". . . . . Update + Upgrade"
 # Build and install radare2 on master branch
-DEBIAN_FRONTEND=noninteractive dpkg --add-architecture i386 && apt-get -y -qq update
+DEBIAN_FRONTEND=noninteractive dpkg --add-architecture i386 && apt-get -y -q update
 
 echo ". . . . . Dependencies"
 # Install Dependencies
-apt-get -y -qq install -y \
+apt-get -y -q install -y \
   curl \
   gcc \
   git \
@@ -39,24 +39,24 @@ apt-get -y -qq install -y \
   nasm \
 
 echo ". . . . . Python + pip + virtualenv"
-apt-get -y -qq install python-pip python-dev build-essential 
+apt-get -y -q install python-pip python-dev build-essential 
 pip install --upgrade pip 
 pip install --upgrade virtualenv 
 
 echo ". . . . . Nodejs"
 # nodejs
-apt-get -y -qq install gcc g++ make
+apt-get -y -q install gcc g++ make
 curl -sL https://deb.nodesource.com/setup_10.x | bash -
-apt-get -y -qq update
-apt-get -y -qq install nodejs
+apt-get -y -q update
+apt-get -y -q install nodejs
 
 echo ". . . . . tldr"
-sudo npm install -g tldr
+npm install -g tldr
 
 echo ". . . . . yarn for nodejs"
-curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update && sudo apt-get install yarn
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+apt-get update && apt-get install yarn
 
 echo ". . . . . r2"
 # r2
@@ -94,13 +94,8 @@ echo ". . . . . r2frida"
 # $ r2 frida://device-id/Twitter
 r2pm -ci r2frida
 
-echo ". . . . . cleanup"
-# Cleanup
-apt-get autoremove --purge -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 echo ". . . . . gdb"
-apt-get -y -qq update
-apt-get -y -qq install -y gdb
+apt-get -y -q install -y gdb
 
 # echo ". . . . . gdb-dashboard"
 # wget -P ~ git.io/.gdbinit
@@ -110,18 +105,21 @@ apt-get -y -qq install -y gdb
 # echo "source ~/peda/peda.py" >> ~/.gdbinit
 
 echo ". . . . . GEF"
+
 wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
+apt-get -y -q install python3-pip
+python3 -m pip install capstone unicorn keystone-engine ropper
 
 echo ". . . . . Pwntools"
-sudo apt-get -y -qq install binutils python-dev python2.7 python-pip libssl-dev libffi-dev build-essential
-sudo python2 -m pip install --upgrade pip
-sudo python2 -m pip install --upgrade pwntools
+apt-get -y -q install binutils python-dev python2.7 python-pip libssl-dev libffi-dev build-essential
+python2 -m pip install --upgrade pip
+python2 -m pip install --upgrade pwntools
 
 echo ". . . . . Fish shell"
 apt-add-repository -y ppa:fish-shell/release-2
-apt-get -qq update
-apt-get -qq -y install fish
-echo "/usr/bin/fish" | sudo tee -a /etc/shells
+apt-get -q update
+apt-get -q -y install fish
+echo "/usr/bin/fish" | tee -a /etc/shells
 chsh -s /usr/bin/fish
 
 echo ". . . . . . . . . . "
@@ -130,8 +128,17 @@ echo ". . . . . . . . . . "
 mkdir -p /tmp/core_dump
 chmod 777 /tmp/core_dump
 echo "/proc/sys/kernel/core_pattern : "
-echo "/tmp/core_dump.%s.%e.%p" | sudo tee /proc/sys/kernel/core_pattern
+echo "/tmp/core_dump.%s.%e.%p" | tee /proc/sys/kernel/core_pattern
 echo "/proc/sys/fs/suid_dumpable    : "
 cat /proc/sys/fs/suid_dumpable
 echo "seting : ulimit -c unlimited    "
 ulimit -c unlimited
+
+sysctl -w kernel.randomize_va_space=0
+
+echo ". . . . . cleanup"
+# Cleanup
+apt-get autoremove --purge -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+echo ". . . . . exercises compilation"
+/utils/compile-all-exercises

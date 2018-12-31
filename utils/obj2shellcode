@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-objdump -d $1
+objdump -M intel -d $1
 echo "==================================="
 
 shellcode=$(objdump -d $1 | grep '[0-9a-f]:' | grep -v 'file' | cut -f2 -d: | cut -f1-6 -d' ' | tr -s ' ' | tr '\t' ' ' | sed 's/ $//g' | sed 's/ / /g' | paste -d '' -s | sed 's/^/"/' | sed 's/$/"/g' | sed 's/\"//g')
@@ -8,7 +8,8 @@ echo "shellcode:"
 echo $shellcode
 echo "-- -- -- -- --"
 echo "shellcode lenght:"
-echo $shellcode | sed 's/ //g' | wc -c
+echo -n "$shellcode" | sed 's/ //g' | wc -c | awk '{ print $1/2 }'
+
 echo "-- -- -- -- --"
 echo $shellcode | sed -e 's/^/\\x/' | sed 's/ /\\x/g' | paste -d '' -s | sed 's/^/"/' | sed 's/$/"/g' | sed 's/\"//g'
 echo "-- -- -- -- --"

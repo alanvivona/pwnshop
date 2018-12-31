@@ -3,19 +3,17 @@
 sysctl -w kernel.randomize_va_space=0
 
 echo ". . . . . rm all .bin from /src"
-rm (ls -R /src | grep .bin)
+rm (ls /src/protostar-challenges | grep .bin)
 echo ". . . . . generating new binaries from source"
-for file in (ls /src)
+for file in (ls /src/protostar-challenges)
     echo compilling $file...
     gcc \
         -w \
         -g -m32 \
-        -no-pie  \
         -fno-stack-protector   \
         -fno-asynchronous-unwind-tables   \
         -mpreferred-stack-boundary=2   \
         -z execstack  \
-        /src/$file \
-        -o (echo $file | cut -d"." -f1).bin \
-        2>/dev/null
+        /src/protostar-challenges/$file \
+        -o (echo /src/protostar-challenges/$file | cut -d"." -f1).bin ; and echo compiled
 end

