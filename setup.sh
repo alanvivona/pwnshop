@@ -103,13 +103,13 @@ apt-get -y -q install -y gdb
 echo ". . . . . PEDA"
 cd /home/vagrant
 git clone https://github.com/longld/peda.git /home/vagrant/peda
-echo "source /home/vagrant/peda/peda.py" >> ~/.gdbinit
+echo "source /home/vagrant/peda/peda.py" >> /home/vagrant/.gdbinit
 
 echo ". . . . . VOLTRON"
 cd /home/vagrant
 git clone https://github.com/snare/voltron
 ./voltron/install.sh -s
-echo "source /path/to/voltron/entry.py" >> /home/vagrant/.gdbinit
+echo "source /home/vagrant/voltron/voltron/entry.py" >> /home/vagrant/.gdbinit
 
 # echo ". . . . . GEF"
 # wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
