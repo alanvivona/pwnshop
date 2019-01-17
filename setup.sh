@@ -100,15 +100,21 @@ apt-get -y -q install -y gdb
 # echo ". . . . . gdb-dashboard"
 # wget -P ~ git.io/.gdbinit
 
-# echo ". . . . . PEDA"
-# git clone https://github.com/longld/peda.git ~/peda
-# echo "source ~/peda/peda.py" >> ~/.gdbinit
+echo ". . . . . PEDA"
+cd /home/vagrant
+git clone https://github.com/longld/peda.git /home/vagrant/peda
+echo "source /home/vagrant/peda/peda.py" >> ~/.gdbinit
 
-echo ". . . . . GEF"
+echo ". . . . . VOLTRON"
+cd /home/vagrant
+git clone https://github.com/snare/voltron
+./voltron/install.sh -s
+echo "source /path/to/voltron/entry.py" >> /home/vagrant/.gdbinit
 
-wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
-apt-get -y -q install python3-pip
-python3 -m pip install capstone unicorn keystone-engine ropper
+# echo ". . . . . GEF"
+# wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
+# apt-get -y -q install python3-pip
+# python3 -m pip install capstone unicorn keystone-engine ropper
 
 echo ". . . . . Pwntools"
 apt-get -y -q install binutils python-dev python2.7 python-pip libssl-dev libffi-dev build-essential
@@ -136,9 +142,14 @@ ulimit -c unlimited
 
 sysctl -w kernel.randomize_va_space=0
 
+echo ". . . . . Reconfigure locale"
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+sudo dpkg-reconfigure locales
+
 echo ". . . . . cleanup"
 # Cleanup
 apt-get autoremove --purge -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-echo ". . . . . exercises compilation"
-/utils/compile-all-exercises
+# echo ". . . . . exercises compilation"
+# /utils/compile-all-exercises
