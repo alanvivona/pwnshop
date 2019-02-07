@@ -1,0 +1,12 @@
+Kazam for screen recording
+
+
+convert mp4 form kazan into gif:
+https://askubuntu.com/questions/648603/how-to-create-an-animated-gif-from-mp4-video-via-command-line
+
+
+ffmpeg \
+    -i pnw.mp4 \
+    -r 3 \
+    -vf scale=1000:-1 \
+    pwn.gif
