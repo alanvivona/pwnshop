@@ -11,7 +11,7 @@ Notes, cheatsheets and sample exploits I'm writing while learning binary exploit
 ## Progress:
 - Hand-crafted exit syscall asm: [code](https://github.com/alanvivona/pwnshop/blob/master/src/exploits/0x00-calling-exit-syscall/0x00-exitSyscall.asm)
 - Hand-crafted write syscall "Hello world!": [code](https://github.com/alanvivona/pwnshop/blob/master/src/exploits/0x01-calling-write-syscall/0x01-calling-write-syscall.asm)
-- Hand-crafted execve shellcode [code]()
+- Hand-crafted execve shellcode [code](https://github.com/alanvivona/pwnshop/blob/master/src/exploits/0x02-execve-dynamic-addressing/0x02-dynamic-addressing.asm)
 - Ret2libc exploit for protostar stack6 challenge : [code](https://github.com/alanvivona/pwnshop/blob/master/src/exploits/0x03-system-for-ret2libc/pwn.py)
 - Exploit for protostar stack7 challenge : [code](https://github.com/alanvivona/pwnshop/blob/master/src/exploits/0x04-simplest-rop-ever/roppwn.py)
 - Writeup for protostar stack challenges: [WIP]
