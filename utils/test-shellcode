@@ -1,0 +1,35 @@
+#!/usr/bin/env fish
+
+set shellcode $argv[1]
+
+set testFile "shellcode-test.c"
+
+if test -n "$shellcode"
+
+        echo 'Creating $testFile file...'
+        echo '' > $testFile
+        echo '================================='
+        echo 'unsigned char code[] = "'$shellcode'";' | tee --append $testFile
+        echo 'main(){' | tee --append $testFil
+        echo '    int (*ret)() = (int(*)())code;' | tee --append $testFil
+        echo '    ret();' | tee --append $testFil
+        echo '}' | tee --append $testFil
+        echo '================================='
+
+    echo compilling $testFile...
+    gcc \
+        -w \
+        -g \
+        -fno-stack-protector   \
+        -fno-asynchronous-unwind-tables   \
+        -mpreferred-stack-boundary=3   \
+        -z execstack  \
+        $testFile \
+        -o (echo $testFile | cut -d"." -f1).bin ; and echo 'done!'
+    
+else
+    echo '[!]   Expected shellcode as argument'
+    echo '[!]   Example:'
+    echo '[!]       test-shellcode "\x90\x90"'
+    exit
+end

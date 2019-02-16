@@ -24,6 +24,6 @@ if test -n "$format"; and test -n "$filename"
 else
     echo "[!]   Expected filename and format (elf32|elf64) as arguments"
     echo "[!]   Example:"
-    echo "[!]       compile-and-link ./someFileName.nasm elf64"
+    echo "[!]       asm-and-link ./someFileName.nasm elf64"
     exit
 end
