@@ -3,18 +3,27 @@
 set filename $argv[1]
 set filenameNoExtention (echo -n $filename | cut -d"." -f1)
 
-echo "compiling $filename in elf32 format..."
+set format $argv[2]
 
-if nasm -f elf32 $filename -o $filenameNoExtention.o
-    if ld $filenameNoExtention.o -o $filenameNoExtention.elf32
-        if rm $filenameNoExtention.o
-            echo -n "done!"
+if test -n "$format"; and test -n "$filename"    
+    echo "compiling $filename in $format format..."
+
+    if nasm -f $format $filename -o $filenameNoExtention.o
+        if ld $filenameNoExtention.o -o $filenameNoExtention.$format
+            if rm $filenameNoExtention.o
+                echo "done!"
+            else
+                echo "FAIL! : rm $filenameNoExtention.o" 1>&2
+            end
         else
-            echo "FAIL! : rm $filenameNoExtention.o" 1>&2
+            echo "FAIL! : ld $filenameNoExtention.o -o $filenameNoExtention.$format" 1>&2
         end
-    else
-        echo "FAIL! : ld $filenameNoExtention.o -o $filenameNoExtention.elf32" 1>&2
+    else 
+        echo  "FAIL! : nasm -f $format $filename -o $filenameNoExtention.o" 1>&2
     end
-else 
-    echo  "FAIL! : nasm -f elf32 $filename -o $filenameNoExtention.o" 1>&2
+else
+    echo "[!]   Expected filename and format (elf32|elf64) as arguments"
+    echo "[!]   Example:"
+    echo "[!]       compile-and-link ./someFileName.nasm elf64"
+    exit
 end
