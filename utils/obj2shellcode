@@ -3,7 +3,7 @@
 objdump -M intel -d $1
 echo "==================================="
 
-shellcode=$(objdump -d $1 | grep -Po '\s\K[a-f0-9]{2}(?=\s)' | sed 's/^/\\x/g' | perl -pe 's/\r?\n//')
+shellcode=$(objdump --disassemble-zeroes -d $1 | grep -Po '\s\K[a-f0-9]{2}(?=\s)' | sed 's/^/\\x/g' | perl -pe 's/\r?\n//')
 
 echo "SHELLCODE:"
 echo $shellcode
