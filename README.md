@@ -1,12 +1,5 @@
 # pwnshop
-
-Notes, cheatsheets and sample exploits I'm writing while learning binary exploitation from sources like:
-- live overflow
-- the shellcodes handbook
-- exploit-education's protostar and fusion challenges
-- gynvael coldwind
-- corelan
-- fuzzysecurity
+Notes, cheatsheets, shellcode and exploits.
 
 ## Progress:
 - Utility - Object/Executable file to shellcode converter script: [code](https://github.com/alanvivona/pwnshop/blob/master/utils/obj2shellcode)    
@@ -23,3 +16,11 @@ Notes, cheatsheets and sample exploits I'm writing while learning binary exploit
 - Protostar format string challenges [WIP]
 - Execve shellcode (stack method) : [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x0A-execve-stack/execvestack.nasm)  
 - Execve shellcode using RIP relative addressing [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x0B-execve-rip-relative-addressing/execve-rip-relative.nasm)  
+
+### Related resources:
+- live overflow
+- the shellcodes handbook
+- exploit-education's protostar and fusion challenges
+- gynvael coldwind
+- corelan
+- fuzzysecurity
