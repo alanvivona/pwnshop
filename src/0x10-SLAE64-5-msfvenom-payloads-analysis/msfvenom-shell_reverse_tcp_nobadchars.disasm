@@ -1,0 +1,35 @@
+    0x00  4831c9         xor rcx, rcx                                                                                                                      
+    0x03  4881e9f6ffff.  sub rcx, 0xfffffffffffffff6                                                                                                       
+    0x0a  488d05efffff.  lea rax, [0x00000000]                                                                                                             
+    0x11  48bba062921b.  movabs rbx, 0x2cbc29441b9262a0                                                                                                    
+┌─> 0x1b  48315827       xor qword [rax + 0x27], rbx                                                                                                       
+╎   0x1f  482df8ffffff   sub rax, 0xfffffffffffffff8                                                                                                       
+└─< 0x25  e2f4           loop 0x1b                                                                                                                         
+    0x27  ca4bca         retf 0xca4b                                                                                                                       
+    0x2a  82             invalid                                                                                                                           
+    0x2b  2e2be3         sub esp, ebx                                                                                                                      
+    0x2e  46a13c9d1e0c.  movabs eax, dword [0xa295f4be0c1e9d3c]                                                                                            
+    0x38  62             invalid                                                                                                                           
+    0x39  83478481       add dword [rdi - 0x7c], 0xffffffffffffff81                                                                                        
+    0x3d  bc28f12a1b     mov esp, 0x1b2af128                                                                                                               
+    0x42  fd             std                                                                                                                               
+    0x43  2e39e6         cmp esi, esp                                                                                                                      
+    0x46  468a3a         mov r15b, byte [rdx]                                                                                                              
+    0x49  9d             popfq                                                                                                                             
+    0x4a  1e             invalid                                                                                                                           
+    0x4b  2e2ae2         sub ah, dl                                                                                                                        
+    0x4e  645f           pop rdi                                                                                                                           
+    0x50  ac             lodsb al, byte [rsi]                                                                                                              
+    0x51  f8             clc                                                                                                                               
+    0x52  3a1c26         cmp bl, byte [rsi]                                                                                                                
+    0x55  b9595608a9     mov ecx, 0xa9085659                                                                                                               
+    0x5a  43dd6107       frstor dword [r9 + 7]                                                                                                             
+    0x5e  03c2           add eax, edx                                                                                                                      
+    0x60  0bfc           or edi, esp                                                                                                                       
+    0x62  3437           xor al, 0x37                                                                                                                      
+    0x64  41bc7fe8eb75   mov r12d, 0x75ebe87f                                                                                                              
+    0x6a  49136135       adc rsp, qword [r9 + 0x35]
+    0x6e  caaf67         retf 0x67af
+    0x71  92             xchg eax, edx
+    0x72  1b4429bc       sbb eax, dword [rcx + rbp - 0x44]
+    0x76  2cff           sub al, 0xff

