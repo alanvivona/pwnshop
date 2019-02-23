@@ -5,6 +5,9 @@
 ; so I could take every single NIBBLE and add the 5 as a prefix
 ; this encoder would duplicate the original shellcode size
 
+; next step: search for veveral opcodes like 0x5X, make an array of them
+; we can generate different shellcodes every time using different opcodes
+
 ; some ideas of how to decode the payload:
 ; (asume rsi points to the start of the encoded shellcode and rcx is the offset)
 
