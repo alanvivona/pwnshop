@@ -7,7 +7,7 @@
     0x09  5e             pop rsi                                                                                                                           
     0x0a  0f05           syscall                                                                                                                           
     0x0c  4897           xchg rax, rdi                                                                                                                     
-    0x0e  48b90200115c.  movabs rcx, 0x400a8c05c110002                                                                                                     
+    0x0e  48b90200115c.  movabs rcx, 0x100007f5c110002                                                                                                     
     0x18  51             push rcx                                                                                                                          
     0x19  4889e6         mov rsi, rsp                          
     0x1c  6a10           push 0x10                   ; 16
