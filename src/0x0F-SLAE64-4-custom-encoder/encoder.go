@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // TODO: Replace this for a file descriptor, read input from a binary file
 var HardcodedInput = []byte(`
@@ -13,21 +15,31 @@ var HardcodedInput = []byte(`
 
 func main() {
 	// TODO: Read file here
-	fmt.Printf("Input hex: %v", HardcodedInput)
-	encodedOutput, _ := encode(HardcodedInput)
-	fmt.Printf("[d]: %v \n", encodedOutput)
+	fmt.Printf("Input hex: %v\n", HardcodedInput)
+	key := []byte("\x50")
+
+	encodedOutput, err := encode(HardcodedInput, key)
+	if err != nil {
+		fmt.Printf("[ERROR]: An error ocurred while encoding %v\n", err)
+	}
+	fmt.Printf("[RESULT ENCODE]: %v \n", encodedOutput)
+
+	decodedOutput, err := encode(encodedOutput, key)
+	if err != nil {
+		fmt.Printf("[ERROR]: An error ocurred while decoding %v\n", err)
+	}
+	fmt.Printf("[RESULT DECODE]: %v \n", decodedOutput)
+
 }
 
-func encode(input []byte) ([]byte, error) {
-	encodingOpcodes := []byte("\x50")
-	encodingOpcode := encodingOpcodes[0]
-
+func encode(input []byte, key []byte) ([]byte, error) {
 	output := []byte{}
 	for i, bytecode := range input {
-		fmt.Printf("encoding hex input[%d]: %v \n", i, bytecode)
+		//fmt.Printf("encoding hex input[%d]: %v \n", i, bytecode)
 		// let's just do a XOR encoder first
-		encodedBytecode := bytecode ^ encodingOpcode
-		fmt.Printf("encoded hex input[%d] to %v \n", i, encodedBytecode)
+		keyByte := key[i%len(key)] // this makes keylenght variable
+		encodedBytecode := bytecode ^ keyByte
+		//fmt.Printf("encoded hex input[%d] to %v using key %v\n", i, encodedBytecode, keyByte)
 		output = append(output, encodedBytecode)
 	}
 	return output, nil
