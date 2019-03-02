@@ -36,20 +36,9 @@ func main() {
 		},
 	)
 
-	insertionEncoder := genEncoderFn(
-		"INSERTION",
-		// encoder
-		func(input byte, key byte) ([]byte, error) { return []byte{input, key}, nil },
-		// decoder
-		func(input []byte) ([]byte, error) {
-			return input, nil
-		},
-	)
-
 	encoders := []func(input []byte, key []byte) ([]byte, error){
 		xorEncoder,
 		addEncoder,
-		insertionEncoder,
 	}
 
 	key := []byte{0x50, 0x51, 0x52, 0x53, 0x54}
