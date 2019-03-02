@@ -1,1 +1,0 @@
-; take the code from the auth bind shell and remove nulls + try to optimize size
