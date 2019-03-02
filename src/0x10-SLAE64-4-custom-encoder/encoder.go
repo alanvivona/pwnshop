@@ -16,17 +16,35 @@ func main() {
 	// TODO: Read file here
 	fmt.Printf(">> Input:\n%x\n", HardcodedInput)
 
-	xorEncoder := genEncoderFn("XOR", func(input byte, key byte) ([]byte, error) {
-		return []byte{input ^ key}, nil
-	})
+	xorEncoder := genEncoderFn(
+		"XOR",
+		// encoder
+		func(input byte, key byte) ([]byte, error) { return []byte{input ^ key}, nil },
+		// decoder
+		func(input []byte) ([]byte, error) {
+			return input, nil
+		},
+	)
 
-	addEncoder := genEncoderFn("ADD", func(input byte, key byte) ([]byte, error) {
-		return []byte{input + key}, nil
-	})
+	addEncoder := genEncoderFn(
+		"ADD",
+		// encoder
+		func(input byte, key byte) ([]byte, error) { return []byte{input + key}, nil },
+		// decoder
+		func(input []byte) ([]byte, error) {
+			return input, nil
+		},
+	)
 
-	insertionEncoder := genEncoderFn("INSERTION", func(input byte, key byte) ([]byte, error) {
-		return []byte{input, key}, nil
-	})
+	insertionEncoder := genEncoderFn(
+		"INSERTION",
+		// encoder
+		func(input byte, key byte) ([]byte, error) { return []byte{input, key}, nil },
+		// decoder
+		func(input []byte) ([]byte, error) {
+			return input, nil
+		},
+	)
 
 	encoders := []func(input []byte, key []byte) ([]byte, error){
 		xorEncoder,
@@ -46,7 +64,11 @@ func main() {
 
 }
 
-func genEncoderFn(encoderName string, operation func(input byte, key byte) ([]byte, error)) func(input []byte, key []byte) ([]byte, error) {
+func genEncoderFn(
+	encoderName string,
+	operation func(input byte, key byte) ([]byte, error),
+	addDecoderStub func(input []byte) ([]byte, error),
+) func(input []byte, key []byte) ([]byte, error) {
 	encoderFn := func(input []byte, key []byte) ([]byte, error) {
 		fmt.Printf(">> Running %s encoder using key %x (size=%d)\n", encoderName, key, len(key))
 		output := []byte{}
@@ -59,6 +81,12 @@ func genEncoderFn(encoderName string, operation func(input byte, key byte) ([]by
 			}
 			output = append(output, encodedOutput...)
 		}
+
+		output, err := addDecoderStub(output)
+		if err != nil {
+			return nil, err
+		}
+
 		return output, nil
 	}
 	return encoderFn
