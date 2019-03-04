@@ -10,7 +10,7 @@ echo $shellcode
 echo "-- -- -- -- --"
 
 echo -n "SHELLCODE LENGHT: "
-echo -n "$shellcode" | wc -c | awk '{ print $1/2 }'
+echo -n $shellcode | wc -c | awk '{ print $1/2 }'
 echo "-- -- -- -- --"
 
 echo "SHELLCODE BYTECODE: "

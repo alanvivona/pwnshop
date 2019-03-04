@@ -37,7 +37,7 @@ global _start
 
     ; Configs
     config.max_cons equ 0x2
-    config.password equ 0x4444444444444444 ; DDDDDDDD
+    config.password equ 0x4d54454c214e4945 ; MTEL!NIE > LETMEIN!
 
 section .text
 
