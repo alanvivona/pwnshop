@@ -49,40 +49,40 @@ _start:
     push syscalls.socket
     pop rax
     push ipv4
-	pop rdi
+    pop rdi
     push tcp
-	pop rsi
-	cdq
-	syscall
+    pop rsi
+    cdq
+    syscall
 
     ; 2 - Save socket fd and build server struct
     xchg rdi, rax
 	
     sub rsp, 0x08
-	mov dword [rsp+0x04], r14d
+    mov dword [rsp+0x04], r14d
     mov word  [rsp+rax], setup.port
-	mov word  [rsp], ax
+    mov word  [rsp], ax
 
     ; 3 - Bind to socket
-	push syscalls.bind
+    push syscalls.bind
     pop rax
-	mov rsi, rsp
+    mov rsi, rsp
     push ipv4.addressLen
-	pop rdx
-	syscall
+    pop rdx
+    syscall
 
     ; 4 - Listen
-	push syscalls.listen
+    push syscalls.listen
     pop rax
     push config.max_cons
-	pop rsi
-	syscall
+    pop rsi
+    syscall
 
     ; 5 - Accept incoming connection
-	push syscalls.accept
+    push syscalls.accept
     pop rax
-	sub rsp, rdx
-	mov rsi, rsp
+    sub rsp, rdx
+    mov rsi, rsp
     dec rsp
     mov byte [rsp], ipv4.addressLen
     mov rdx, rsp
