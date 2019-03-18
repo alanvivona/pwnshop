@@ -1,11 +1,20 @@
 #!/usr/bin/env bash
 
-objdump -M intel -d $1
+# ANSI color variables
+ESC=$(printf '\033')
+RED="${ESC}[0;31m"
+NC="${ESC}[0m"      # No Color
+
+# Mark problematic chars in red
+objdump -M intel -d $1 | sed -e "s/00 /${RED}00${NC} /g;s/09 /${RED}09${NC} /g;s/0a /${RED}0a${NC} /g;s/0d /${RED}0d${NC} /g;s/1a /${RED}1a${NC} /g;s/20 /${RED}20${NC} /g;s/40 /${RED}40${NC} /g;s/5c /${RED}5c${NC} /g;s/5f /${RED}5f${NC} /g;s/2f /${RED}2f${NC} /g;s/2e /${RED}2e${NC} /g"
+
 echo "==================================="
 
 shellcode=$(objdump --disassemble-zeroes -d $1 | grep -Po '\s\K[a-f0-9]{2}(?=\s)' | sed 's/^/\\x/g' | perl -pe 's/\r?\n//')
 
 echo "SHELLCODE:"
+
+# Paint bad chars red
 echo $shellcode
 echo "-- -- -- -- --"
 
