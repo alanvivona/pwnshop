@@ -60,22 +60,15 @@ func Decrypt(key []byte, text []byte) ([]byte, error) {
 		textAfterPadding = append(text, bytes.Repeat([]byte("="), 4-m)...)
 	}
 
-	// Decoding from base64
-	// decodedCipherText, err := base64.URLEncoding.DecodeString(string(textAfterPadding))
-	decodedCipherText := textAfterPadding
-	// if err != nil {
-	// return nil, err
-	// }
-
-	if (len(decodedCipherText) % aes.BlockSize) != 0 {
+	if (len(textAfterPadding) % aes.BlockSize) != 0 {
 		return nil, errors.New("wrong blocksize")
 	}
 
 	// Getting the IV
-	iv := decodedCipherText[:aes.BlockSize]
+	iv := textAfterPadding[:aes.BlockSize]
 
 	// Actual decryption
-	decodedCipherMsg := decodedCipherText[aes.BlockSize:]
+	decodedCipherMsg := textAfterPadding[aes.BlockSize:]
 	cfbDecrypter := cipher.NewCFBDecrypter(block, iv)
 	cfbDecrypter.XORKeyStream(decodedCipherMsg, decodedCipherMsg)
 
