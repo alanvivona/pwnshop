@@ -5,7 +5,6 @@ import (
 	"crypto/aes"
 	"crypto/cipher"
 	"crypto/rand"
-	"encoding/base64"
 	"errors"
 	"fmt"
 	"io"
@@ -38,17 +37,15 @@ func Encrypt(key []byte, text []byte) ([]byte, error) {
 	cfbEncrypter := cipher.NewCFBEncrypter(block, iv)
 	cfbEncrypter.XORKeyStream(ciphertext[aes.BlockSize:], textWithPadding)
 
-	// base64 padding
-	base64Ciphertext := []byte(base64.URLEncoding.EncodeToString(ciphertext))
-	result := []byte(bytes.Replace(base64Ciphertext, []byte("="), []byte(""), -1))
+	// // base64 padding
+	// base64Ciphertext := []byte(base64.URLEncoding.EncodeToString(ciphertext))
+	// result := []byte(bytes.Replace(base64Ciphertext, []byte("="), []byte(""), -1))
 
-	return result, nil
+	return ciphertext, nil
 }
 
 // Decrypt ...
 func Decrypt(key []byte, text []byte) ([]byte, error) {
-
-	fmt.Println("::Decrypt")
 
 	// Init decipher
 	block, err := aes.NewCipher(key)
@@ -64,10 +61,11 @@ func Decrypt(key []byte, text []byte) ([]byte, error) {
 	}
 
 	// Decoding from base64
-	decodedCipherText, err := base64.URLEncoding.DecodeString(string(textAfterPadding))
-	if err != nil {
-		return nil, err
-	}
+	// decodedCipherText, err := base64.URLEncoding.DecodeString(string(textAfterPadding))
+	decodedCipherText := textAfterPadding
+	// if err != nil {
+	// return nil, err
+	// }
 
 	if (len(decodedCipherText) % aes.BlockSize) != 0 {
 		return nil, errors.New("wrong blocksize")

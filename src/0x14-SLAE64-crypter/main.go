@@ -62,4 +62,6 @@ func main() {
 
 	fmt.Print("Result [String]:\n")
 	fmt.Printf("%s\n", result)
+
+	cli.SaveResult(result)
 }
