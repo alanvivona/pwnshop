@@ -26,7 +26,6 @@ func ParseUserInput() ([]byte, string, int, error) {
 		}
 	}
 
-	fmt.Println("Getting acton")
 	// Get action
 	action := ""
 	if len(os.Args) > 1 {
@@ -52,7 +51,6 @@ func ParseUserInput() ([]byte, string, int, error) {
 	}
 
 	// Get key
-	fmt.Println("Getting key")
 	key := ""
 	if len(os.Args) > 2 {
 		key = os.Args[2]
@@ -68,7 +66,6 @@ func ParseUserInput() ([]byte, string, int, error) {
 	}
 
 	// Get shellcode
-	fmt.Println("Getting shellcode")
 	shellcode := []byte("")
 	if len(os.Args) > 2 {
 		shellcode = []byte(os.Args[3])

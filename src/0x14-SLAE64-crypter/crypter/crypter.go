@@ -14,8 +14,6 @@ import (
 // Encrypt ...
 func Encrypt(key []byte, text []byte) ([]byte, error) {
 
-	fmt.Println("::Encrypt")
-
 	// Init Cipher
 	block, err := aes.NewCipher(key)
 	if err != nil {
