@@ -14,9 +14,9 @@ func main() {
 	shellcode, keyString, action, err := cli.ParseUserInput()
 
 	fmt.Printf("Input size is: %d bytes\n", len(shellcode))
-	fmt.Printf("% x\n", shellcode)
+	// fmt.Printf("% x\n", shellcode)
 	fmt.Printf("Key size is: %d bytes\n", len(keyString))
-	fmt.Println(keyString)
+	// fmt.Println(keyString)
 
 	if err != nil {
 		fmt.Println(err)
@@ -24,7 +24,6 @@ func main() {
 	}
 
 	key := []byte(keyString)
-
 	result := []byte{}
 
 	// Encrypt
@@ -57,11 +56,11 @@ func main() {
 		shellcoderun.Run(result)
 	}
 
-	fmt.Print("Result [Hex]:\n")
-	fmt.Printf("% x\n", result)
+	// fmt.Print("Result [Hex]:\n")
+	// fmt.Printf("% x\n", result)
 
-	fmt.Print("Result [String]:\n")
-	fmt.Printf("%s\n", result)
+	// fmt.Print("Result [String]:\n")
+	// fmt.Printf("%s\n", result)
 
 	cli.SaveResult(result)
 }
