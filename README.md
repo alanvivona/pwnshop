@@ -20,7 +20,7 @@ Notes, cheatsheets, shellcode and exploits.
 - Password Protected Reverse Shell (Linux/x64) [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x0E-SLAE64-2-reverse-tcp-auth/reverse-tcp-with-auth.nasm), [writeup](https://medium.com/@0x0FFB347/writing-a-password-protected-reverse-shell-linux-x64-5f4d3a28d91a)  
 - XANAX - A custom shellcode encoder written in assembly : [encoder code](https://github.com/alanvivona/pwnshop/blob/master/src/0x10-SLAE64-4-custom-encoder/xanax-encoder.nasm), [decoder code](https://github.com/alanvivona/pwnshop/blob/master/src/0x10-SLAE64-4-custom-encoder/xanax-decoder.nasm), [writeup](https://medium.com/@0x0FFB347/writing-a-custom-shellcode-encoder-31816e767611) 
 - A more generic (and somewhat extensible) encoder skeleton written in Go [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x10-SLAE64-4-custom-encoder/encoder.go)   
-- Gocryper : A custom AES shellcode crypter written in Go [code](https://github.com/alanvivona/pwnshop/tree/master/src/0x14-SLAE64-crypter), [writeup](WIP)   
+- Gocryper : A custom AES shellcode crypter written in Go [code](https://github.com/alanvivona/pwnshop/tree/master/src/0x14-SLAE64-crypter), [writeup][WIP]   
 
 ### Related resources:
 - live overflow
