@@ -48,22 +48,15 @@ func Decrypt(key []byte, text []byte) ([]byte, error) {
 		return nil, err
 	}
 
-	// Padding
-	textAfterPadding := text
-	m := len(text) % 4
-	if m != 0 {
-		textAfterPadding = append(text, bytes.Repeat([]byte("="), 4-m)...)
-	}
-
-	if (len(textAfterPadding) % aes.BlockSize) != 0 {
+	if (len(text) % aes.BlockSize) != 0 {
 		return nil, errors.New("wrong blocksize")
 	}
 
 	// Getting the IV
-	iv := textAfterPadding[:aes.BlockSize]
+	iv := text[:aes.BlockSize]
 
 	// Actual decryption
-	decodedCipherMsg := textAfterPadding[aes.BlockSize:]
+	decodedCipherMsg := text[aes.BlockSize:]
 	cfbDecrypter := cipher.NewCFBDecrypter(block, iv)
 	cfbDecrypter.XORKeyStream(decodedCipherMsg, decodedCipherMsg)
 
