@@ -5,10 +5,11 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"time"
 )
 
 var (
-	DEFAULT_OUT_FILE = "gocrypter.out"
+	DEFAULT_OUT_FILE = "gocrypter."
 	DEFAULT_KEY      = []byte("Alan @syscall59 ")
 
 	// Default shellcode taken from here:
@@ -122,6 +123,12 @@ func getShellcode(args []string) ([]byte, error) {
 
 // SaveResult ...
 func SaveResult(data []byte) error {
-	fmt.Printf("Saved to %s\n", DEFAULT_OUT_FILE)
-	return ioutil.WriteFile(DEFAULT_OUT_FILE, data, 770)
+	timeString := time.Now().Format("150405")
+	fileName := DEFAULT_OUT_FILE + timeString + ".out"
+	err := ioutil.WriteFile(fileName, data, 777)
+	if err != nil {
+		return err
+	}
+	fmt.Printf("Saved to %s\n", fileName)
+	return nil
 }
