@@ -32,6 +32,7 @@ type lex struct {
 type equivalence []string
 
 var polymorphRules map[string][]equivalence
+var archRegisters map[string]bool
 
 func exitIfError(err error) {
 	if err != nil {
@@ -46,6 +47,7 @@ func main() {
 	exitIfError(err)
 
 	loadPolymorphicRules()
+	loadArchitectureRegisters()
 
 	for _, line := range lines {
 		//fmt.Printf("Reading Line: '%s'\n", line)
@@ -62,9 +64,78 @@ func main() {
 	}
 }
 
+func loadArchitectureRegisters() {
+	archRegisters = map[string]bool{
+		"rax":  true,
+		"eax":  true,
+		"ax":   true,
+		"al":   true,
+		"rbx":  true,
+		"ebx":  true,
+		"bx":   true,
+		"bl":   true,
+		"rcx":  true,
+		"ecx":  true,
+		"cx":   true,
+		"cl":   true,
+		"rdx":  true,
+		"edx":  true,
+		"dx":   true,
+		"dl":   true,
+		"rsi":  true,
+		"esi":  true,
+		"si":   true,
+		"sil":  true,
+		"rdi":  true,
+		"edi":  true,
+		"di":   true,
+		"dil":  true,
+		"rbp":  true,
+		"ebp":  true,
+		"bp":   true,
+		"bpl":  true,
+		"rsp":  true,
+		"esp":  true,
+		"sp":   true,
+		"spl":  true,
+		"r8":   true,
+		"r8d":  true,
+		"r8w":  true,
+		"r8b":  true,
+		"r9":   true,
+		"r9d":  true,
+		"r9w":  true,
+		"r9b":  true,
+		"r10":  true,
+		"r10d": true,
+		"r10w": true,
+		"r10b": true,
+		"r11":  true,
+		"r11d": true,
+		"r11w": true,
+		"r11b": true,
+		"r12":  true,
+		"r12d": true,
+		"r12w": true,
+		"r12b": true,
+		"r13":  true,
+		"r13d": true,
+		"r13w": true,
+		"r13b": true,
+		"r14":  true,
+		"r14d": true,
+		"r14w": true,
+		"r14b": true,
+		"r15":  true,
+		"r15d": true,
+		"r15w": true,
+		"r15b": true,
+	}
+}
+
 func loadPolymorphicRules() {
 	polymorphRules = map[string][]equivalence{
-		"xor $1, $1": []equivalence{
+		"xor $1 $1": []equivalence{
 			equivalence{
 				"mov $1, -1",
 				"inc $1",
@@ -73,8 +144,24 @@ func loadPolymorphicRules() {
 				"or $1, -1",
 				"inc $1",
 			},
+			equivalence{
+				"lea $1,[0]",
+			},
+			equivalence{
+				"mov $1,0",
+			},
+			equivalence{
+				"and $1,0",
+			},
+			equivalence{
+				"sub $1,$1",
+			},
+			equivalence{
+				"push 0",
+				"pop $1",
+			},
 		},
-		"mov $1, $2": []equivalence{
+		"mov $1 $2": []equivalence{
 			equivalence{
 				"xor $1, $1",
 				"add $1, $2",
@@ -95,6 +182,13 @@ func loadPolymorphicRules() {
 			},
 			equivalence{
 				"or rbx, rbx",
+			},
+		},
+		"xchg $1 $2": []equivalence{
+			equivalence{
+				"xor $1, $2",
+				"xor $2, $1",
+				"xor $1, $2",
 			},
 		},
 	}
@@ -153,7 +247,6 @@ func updateAbstractRep(abstractRep string, part string, lineParts []string) (upd
 				} else {
 					abstractRep += " " + "$" + strconv.Itoa(len(lineParts)-1)
 				}
-
 			}
 		} else {
 			// part 1 is the operand
@@ -165,6 +258,7 @@ func updateAbstractRep(abstractRep string, part string, lineParts []string) (upd
 
 func parse(line string) (lex, error) {
 	// Remove comments
+	line = strings.ToLower(line)
 	line = strings.Split(line, ";")[0]
 	line = strings.Trim(line, " ")
 	line = strings.Replace(line, ",", " , ", -1)
@@ -178,13 +272,25 @@ func parse(line string) (lex, error) {
 	}
 
 	lineParts := []string{}
-	abstractRep := ""
+	archRegisterCount := 0
 	for _, part := range strings.Split(line, " ") {
 		if len(part) > 0 && part != " " && part != "," {
 			// fmt.Printf("Found part: '%s'\n", part)
 			lineParts = updateLineParts(lineParts, part)
+			if archRegisters[part] {
+				archRegisterCount++
+			}
 		}
-		abstractRep = updateAbstractRep(abstractRep, part, lineParts)
+	}
+
+	abstractRep := ""
+	//fmt.Printf("archRegisterCount : %d, len(lineParts)-1: %d\n", archRegisterCount, len(lineParts)-1)
+	if archRegisterCount == len(lineParts)-1 {
+		tempLineParts := []string{}
+		for _, part := range lineParts {
+			tempLineParts = append(tempLineParts, part)
+			abstractRep = updateAbstractRep(abstractRep, part, tempLineParts)
+		}
 	}
 
 	return lex{
