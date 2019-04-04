@@ -48,10 +48,10 @@ func main() {
 	loadPolymorphicRules()
 
 	for _, line := range lines {
-		// fmt.Printf("Reading Line: '%s'\n", line)
+		//fmt.Printf("Reading Line: '%s'\n", line)
 		lexer, err := parse(line)
 		exitIfError(err)
-		// fmt.Printf("Lexer: '%+v'\n", lexer)
+		//fmt.Printf("Lexer: '%+v'\n", lexer)
 
 		converted := polymorph(lexer)
 		// fmt.Printf("Converted: '%+v'\n", converted)
@@ -140,13 +140,20 @@ func updateAbstractRep(abstractRep string, part string, lineParts []string) (upd
 				abstractRep += part
 			} else {
 				abstractRepIndex := 0
+				found := false
 				for i, linePart := range lineParts {
 					if linePart == part && i != len(linePart)-1 {
 						abstractRepIndex = i
+						found = true
 						break
 					}
 				}
-				abstractRep += " " + "$" + strconv.Itoa(abstractRepIndex)
+				if found {
+					abstractRep += " " + "$" + strconv.Itoa(abstractRepIndex)
+				} else {
+					abstractRep += " " + "$" + strconv.Itoa(len(lineParts)-1)
+				}
+
 			}
 		} else {
 			// part 1 is the operand
@@ -161,6 +168,14 @@ func parse(line string) (lex, error) {
 	line = strings.Split(line, ";")[0]
 	line = strings.Trim(line, " ")
 	line = strings.Replace(line, ",", " , ", -1)
+	line = strings.Replace(line, "  ", " ", -1)
+
+	if len(line) == 0 {
+		return lex{
+			AbstractRepresentation: "",
+			OriginalString:         line,
+		}, nil
+	}
 
 	lineParts := []string{}
 	abstractRep := ""
