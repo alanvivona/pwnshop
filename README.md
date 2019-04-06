@@ -21,8 +21,8 @@ Notes, cheatsheets, shellcode and exploits.
 - XANAX - A custom shellcode encoder written in assembly : [encoder code](https://github.com/alanvivona/pwnshop/blob/master/src/0x10-SLAE64-4-custom-encoder/xanax-encoder.nasm), [decoder code](https://github.com/alanvivona/pwnshop/blob/master/src/0x10-SLAE64-4-custom-encoder/xanax-decoder.nasm), [writeup](https://medium.com/@0x0FFB347/writing-a-custom-shellcode-encoder-31816e767611) 
 - A more generic (and somewhat extensible) encoder skeleton written in Go [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x10-SLAE64-4-custom-encoder/encoder.go)   
 - Gocryper : A custom AES shellcode crypter written in Go [code](https://github.com/alanvivona/pwnshop/tree/master/src/0x14-SLAE64-crypter), [writeup](https://medium.com/syscall59/a-trinity-of-shellcode-aes-go-f6cec854f992)  
-- A basic Polimorphic Engine [code]{WIP}, [writeup]{WIP}  
-- Egg-hunter shellcode (Linux/x64) [code]{WIP}, [writeup]{WIP}  
+- A basic Polimorphic Engine written in Go [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x12-SLAE-shellstorm-polymorph/polymorph/polymorph.go), [writeup]{WIP}  
+- Egg-hunter shellcode (Linux/x64) [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x0F-SLAE64-3-egghunter/egghunter-V1.nasm), [writeup]{WIP}  
 
 ### Related resources:
 - live overflow
