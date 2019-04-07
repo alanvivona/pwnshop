@@ -1,3 +1,6 @@
+; SAMPLE TAKEN FROM : http://shell-storm.org/shellcode/files/shellcode-806.php
+; Execute /bin/sh - 27 bytes
+
 section .text
 global _start
 

