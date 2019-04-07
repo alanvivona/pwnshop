@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math/rand"
 	"strconv"
 	"strings"
@@ -149,7 +148,7 @@ func polymorph(lexer lex) equivalence {
 	rand.Seed(time.Now().UnixNano())
 	choiceIndex := rand.Intn(len(equivalences))
 	choice := equivalences[choiceIndex]
-	fmt.Printf("Found %d equivalences. Will use n %d : %+v\n", len(equivalences), choiceIndex, choice)
+	//fmt.Printf("Found %d equivalences. Will use n %d : %+v\n", len(equivalences), choiceIndex, choice)
 
 	result := equivalence{}
 	for _, piece := range choice {

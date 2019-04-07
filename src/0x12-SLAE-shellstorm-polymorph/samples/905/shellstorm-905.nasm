@@ -1,3 +1,7 @@
+; SAMPLE TAKEN FROM : 
+;   http://shell-storm.org/shellcode/files/shellcode-877.php
+; shutdown -h now x86_64 Shellcode - 65 bytes
+
 global _start
 section .text
 

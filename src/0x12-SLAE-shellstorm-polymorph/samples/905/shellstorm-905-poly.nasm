@@ -13,6 +13,7 @@ push  rsp
 pop  rsi
 xor r8, r8
 add r8, rdx
-xor r8, r8
-add r8, rdx
+xchg r10, rdx
+push r10
+pop rdx
 syscall
