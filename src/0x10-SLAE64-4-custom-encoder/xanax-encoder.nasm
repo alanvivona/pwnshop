@@ -1,3 +1,9 @@
+; Date: 08/04/2019
+; XANAX Encoder
+; Author: Alan Vivona
+; Description: Encoder uses a xor-add-not-add-xor sequence using a 4 bytes key
+; Tested on: x86-x64 GNU/Linux
+
 global _start
 
 segment .data
