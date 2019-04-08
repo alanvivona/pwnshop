@@ -1,7 +1,7 @@
 ; Date: 08/04/2019
 ; XANAX Encoder
 ; Author: Alan Vivona
-; Description: Encoder uses a xor-add-not-add-xor sequence using a 4 bytes key
+; Description: Uses a xor-add-not-add-xor sequence with a 4 byte key and writes the encoded version to srtdout
 ; Tested on: x86-x64 GNU/Linux
 
 global _start
