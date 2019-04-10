@@ -31,3 +31,6 @@ Notes, cheatsheets, shellcode and exploits.
 - gynvael coldwind
 - corelan
 - fuzzysecurity
+- gynvael coldwind
+- packetstormsecurity
+- exploitdb
