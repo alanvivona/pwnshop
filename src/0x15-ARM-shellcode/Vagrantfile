@@ -64,32 +64,39 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    sudo apt update && sudo apt -y upgrade
+    sudo apt-get update && sudo apt-get -y upgrade
 
-    sudo apt -y install git wget vim tmux build-essential curl unzip
+    sudo apt-get -y install git wget vim tmux build-essential curl unzip
 
-    sudo apt -y install qemu-system
+    sudo wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
 
+    sudo apt-get -y install qemu-system
+
+    cd /vagrant_data
+
+    # Download qemu Raspberry Pi kernel images:
     git clone https://github.com/dhruvvyas90/qemu-rpi-kernel.git
 
     # Download the latests Raspbian from:
     # - http://downloads.raspberrypi.org/raspbian/images
     # Into /vagrant_data
-    cd /vagrant_data
     wget http://downloads.raspberrypi.org/raspbian/images/raspbian-2019-04-09/2019-04-08-raspbian-stretch.zip
     unzip 2019-04-08-raspbian-stretch.zip
+    qemu-img convert -f raw -O qcow2 2019-04-08-raspbian-stretch.img raspbian-stretch-lite.qcow
+    qemu-img resize raspbian-stretch-lite.qcow +2G
 
-    # This command needs to be checked
     qemu-system-arm \
       -M versatilepb \
       -cpu arm1176 \
       -m 256 \
-      -hda ./2018-11-13-raspbian-stretch-lite.img \
+      -hda ./raspbian-stretch-lite.qcow \
       -net nic \
       -net user,hostfwd=tcp::5022-:22 \
-      -dtb /.../versatile-pb.dtb \
+      -dtb ./qemu-rpi-kernel/versatile-pb.dtb \
       -kernel ./qemu-rpi-kernel/kernel-qemu-4.14.79-stretch \
-      -append 'root=/dev/sda2 panic=1' \
-      -no-reboot
+      -append "root=/dev/sda2 rootfstype=ext4 rw"\
+      -no-reboot \
+      -nographic
+
   SHELL
 end
