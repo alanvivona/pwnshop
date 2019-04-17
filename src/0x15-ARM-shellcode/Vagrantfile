@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get update && sudo apt-get -y upgrade
 
-    sudo apt-get -y install git wget vim tmux build-essential curl unzip
+    sudo apt-get -y install git wget vim tmux build-essential curl unzip fish
 
     sudo wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
     sudo python3 -m pip install capstone unicorn keystone-engine ropper
@@ -20,29 +20,7 @@ Vagrant.configure("2") do |config|
 
     cd /vagrant_data
 
-    # Download qemu Raspberry Pi kernel images:
-    # git clone https://github.com/dhruvvyas90/qemu-rpi-kernel.git
-
-    # Download the latests Raspbian from:
-    # - http://downloads.raspberrypi.org/raspbian/images
-    # Into /vagrant_data
-    # wget http://downloads.raspberrypi.org/raspbian/images/raspbian-2019-04-09/2019-04-08-raspbian-stretch.zip
-    # unzip 2019-04-08-raspbian-stretch.zip
-    # qemu-img convert -f raw -O qcow2 2019-04-08-raspbian-stretch.img raspbian-stretch-lite.qcow
-    # qemu-img resize raspbian-stretch-lite.qcow +2G
-
-    # qemu-system-arm \
-    #  -M versatilepb \
-    #  -cpu arm1176 \
-    #  -m 256 \
-    #  -hda ./raspbian-stretch-lite.qcow \
-    #  -net nic \
-    #  -net user,hostfwd=tcp::5022-:22 \
-    #  -dtb ./qemu-rpi-kernel/versatile-pb.dtb \
-    #  -kernel ./qemu-rpi-kernel/kernel-qemu-4.14.79-stretch \
-    #  -append "root=/dev/sda2 rootfstype=ext4 rw"\
-    #  -no-reboot \
-    #  -nographic
+    ./armv6_stretch/get.sh
 
   SHELL
 end
