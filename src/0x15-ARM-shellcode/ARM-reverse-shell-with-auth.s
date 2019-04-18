@@ -1,3 +1,8 @@
+// Password-Protected Reverse Shell Linux/ARMv6
+// Author: Alan Vivona
+// medium.syscall59.com
+// @syscall59
+
 .section .text
 .global _start
 _start:
