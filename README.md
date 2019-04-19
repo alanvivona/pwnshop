@@ -30,14 +30,17 @@ Notes, cheatsheets, shellcode and exploits.
 - Gocryper : A custom AES shellcode crypter written in Go [code](https://github.com/alanvivona/pwnshop/tree/master/src/0x14-SLAE64-crypter), [writeup](https://medium.com/syscall59/a-trinity-of-shellcode-aes-go-f6cec854f992)  
 - A basic Polimorphic Engine written in Go [code](https://github.com/alanvivona/pwnshop/tree/master/src/0x12-SLAE-shellstorm-polymorph), [writeup](https://medium.com/me/stats/post/73ec56a2353e)    
 - Egg-hunter shellcode (Linux/x64) [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x0F-SLAE64-3-egghunter/egghunter-V1.nasm), [writeup](https://medium.com/syscall59/on-eggs-and-egg-hunters-linux-x64-305b947f792e)  
+- Password Protected Reverse Shell (Linux/ARMv6) [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x15-ARM-shellcode/ARM-reverse-shell-with-auth.s), [writeup][WIP]  
+
 
 ### Related resources:
 - live overflow
-- the shellcodes handbook
+- the shellcoder's handbook
 - exploit-education's protostar and fusion challenges
 - gynvael coldwind
 - corelan
 - fuzzysecurity
-- gynvael coldwind
 - packetstormsecurity
 - exploitdb
+- beginner's RE book
+- practical reverse engineering book
