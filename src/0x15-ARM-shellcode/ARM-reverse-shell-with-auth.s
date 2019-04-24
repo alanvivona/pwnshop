@@ -57,7 +57,7 @@ mov   r10, r0 // save sockfd into r10
         mov   r0, r10 // r0 = saved sockfd 
         svc   #1
         sub   r1,#1
-    bpl loop_stdio    // loop while r3 >= 0 
+    bpl loop_stdio    // loop while r1 >= 0 
 
 // [011] execve(command, 0, 0) 
     adr   r0, command
