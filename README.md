@@ -30,7 +30,11 @@ Notes, cheatsheets, shellcode and exploits.
 - Gocryper : A custom AES shellcode crypter written in Go [code](https://github.com/alanvivona/pwnshop/tree/master/src/0x14-SLAE64-crypter), [writeup](https://medium.com/syscall59/a-trinity-of-shellcode-aes-go-f6cec854f992)  
 - A basic Polimorphic Engine written in Go [code](https://github.com/alanvivona/pwnshop/tree/master/src/0x12-SLAE-shellstorm-polymorph), [writeup](https://medium.com/me/stats/post/73ec56a2353e)    
 - Egg-hunter shellcode (Linux/x64) [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x0F-SLAE64-3-egghunter/egghunter-V1.nasm), [writeup](https://medium.com/syscall59/on-eggs-and-egg-hunters-linux-x64-305b947f792e)  
-- Password Protected Reverse Shell (Linux/ARMv6) [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x15-ARM-shellcode/ARM-reverse-shell-with-auth.s), [writeup][WIP]  
+- Password Protected Reverse Shell (Linux/ARMv6)  
+    - [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x15-ARM-shellcode/ARM-reverse-shell-with-auth.s)
+    - [writeup](https://medium.com/syscall59/shellcode-for-iot-a-password-protected-reverse-shell-linux-arm-a18fcda4853b)
+    - [payload on packetstormsecurity](https://packetstormsecurity.com/files/152602/Linux-ARM-Password-Protected-Reverse-TCP-Shell-Shellcode.html)
+    - [payload on exploit-db](https://www.exploit-db.com/shellcodes/46736)
 
 
 ### Related resources:
