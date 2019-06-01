@@ -9,7 +9,7 @@ if test -n "$format"; and test -n "$filename"
     echo "compiling $filename in $format format..."
 
     if nasm -f $format $filename -o $filenameNoExtention.o
-        if ld $filenameNoExtention.o -o $filenameNoExtention.$format
+        if ld -N $filenameNoExtention.o -o $filenameNoExtention.$format
             if rm $filenameNoExtention.o
                 echo "done!"
             else
