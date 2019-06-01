@@ -35,6 +35,7 @@ Notes, cheatsheets, shellcode and exploits.
     - [writeup](https://medium.com/syscall59/shellcode-for-iot-a-password-protected-reverse-shell-linux-arm-a18fcda4853b)
     - [payload on packetstormsecurity](https://packetstormsecurity.com/files/152602/Linux-ARM-Password-Protected-Reverse-TCP-Shell-Shellcode.html)
     - [payload on exploit-db](https://www.exploit-db.com/shellcodes/46736)
+- DEFCON Qualys 2019 : Speedrun-001 exploit (Stack-based bof + ROP) [code]()
 
 
 ### Related resources:
