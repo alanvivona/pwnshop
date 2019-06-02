@@ -39,13 +39,16 @@ Notes, cheatsheets, shellcode and exploits.
 
 
 ### Related resources:
-- live overflow
-- the shellcoder's handbook
-- exploit-education's protostar and fusion challenges
-- gynvael coldwind
-- corelan
-- fuzzysecurity
-- packetstormsecurity
-- exploitdb
-- beginner's RE book
-- practical reverse engineering book
+- [Live overflow](https://liveoverflow.com/)
+- [The shellcoder's handbook](https://www.amazon.com/Shellcoders-Handbook-Discovering-Exploiting-Security/dp/047008023X)
+- [Exploit education](https://exploit.education/)
+- [Gynvael coldwind](https://gynvael.coldwind.pl/)
+- [Phrack](http://phrack.org/)
+- [Corelan](https://www.corelan.be/index.php/articles/)
+- [Fuzzysecurity](https://www.fuzzysecurity.com/index.html)
+- [Packetstormsecurity](https://packetstormsecurity.com/)
+- [Exploitdb](https://www.exploit-db.com/)
+- [Beginners RE](https://beginners.re/)
+- [Practical reverse engineering](https://www.amazon.com/Practical-Reverse-Engineering-Reversing-Obfuscation/dp/1118787315)
+- [Programming linux anti-reversing techniques](https://leanpub.com/anti-reverse-engineering-linux)
+- [Radare2](https://radare.org/)
