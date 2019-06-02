@@ -52,3 +52,5 @@ Notes, cheatsheets, shellcode and exploits.
 - [Practical reverse engineering](https://www.amazon.com/Practical-Reverse-Engineering-Reversing-Obfuscation/dp/1118787315)
 - [Programming linux anti-reversing techniques](https://leanpub.com/anti-reverse-engineering-linux)
 - [Radare2](https://radare.org/)
+- [Attacking network protocols](https://nostarch.com/networkprotocols)
+- [Pentester academy](https://www.pentesteracademy.com/)
