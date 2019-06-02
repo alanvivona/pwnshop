@@ -38,7 +38,8 @@ Notes, cheatsheets, shellcode and exploits.
 - DEFCON Qualys 2019 : Speedrun-001 exploit (Stack-based bof + ROP) [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x17-defcon-qualys-2019/speedrun-001-exploit.py)
 
 
-### Related resources:
+### Resources:
+There's a **LOT** of stuff out there. These are just the most useful things I've found so far. I only list stuff that I have already seen/read/used.  
 - [Live overflow](https://liveoverflow.com/)
 - [The shellcoder's handbook](https://www.amazon.com/Shellcoders-Handbook-Discovering-Exploiting-Security/dp/047008023X)
 - [Exploit education](https://exploit.education/)
@@ -54,3 +55,4 @@ Notes, cheatsheets, shellcode and exploits.
 - [Radare2](https://radare.org/)
 - [Attacking network protocols](https://nostarch.com/networkprotocols)
 - [Pentester academy](https://www.pentesteracademy.com/)
+- [Penetration testing: A Hands-On introduction to hacking](https://www.amazon.com/Penetration-Testing-Hands-Introduction-Hacking/dp/1593275641)
