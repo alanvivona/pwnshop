@@ -44,6 +44,7 @@ There's a **LOT** of stuff out there. These are just the most useful things I've
 - [The shellcoder's handbook](https://www.amazon.com/Shellcoders-Handbook-Discovering-Exploiting-Security/dp/047008023X)
 - [Exploit education](https://exploit.education/)
 - [Gynvael coldwind](https://gynvael.coldwind.pl/)
+- [Azeria labs](https://azeria-labs.com/)
 - [Phrack](http://phrack.org/)
 - [Corelan](https://www.corelan.be/index.php/articles/)
 - [Fuzzysecurity](https://www.fuzzysecurity.com/index.html)
