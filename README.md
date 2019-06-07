@@ -2,6 +2,7 @@
 Notes, cheatsheets, shellcode and exploits.
 
 ## Contents:
+- Reverse engineering a simple crackme called “Just see”: [writeup](https://medium.com/@0x0FFB347/crackme-just-see-c6dda1edb9fb) 
 - Utility - Object/Executable file to shellcode converter script: [code](https://github.com/alanvivona/pwnshop/blob/master/utils/obj2shellcode)    
 - Utility - Assembly and link script : [code](https://github.com/alanvivona/pwnshop/blob/master/utils/asm-and-link)    
 - Utility - Shellcode testing skeleton generator : [code](https://github.com/alanvivona/pwnshop/blob/master/utils/gen-shellcode-test)    
@@ -34,8 +35,10 @@ Notes, cheatsheets, shellcode and exploits.
     - [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x15-ARM-shellcode/ARM-reverse-shell-with-auth.s)
     - [writeup](https://medium.com/syscall59/shellcode-for-iot-a-password-protected-reverse-shell-linux-arm-a18fcda4853b)
     - [payload on packetstormsecurity](https://packetstormsecurity.com/files/152602/Linux-ARM-Password-Protected-Reverse-TCP-Shell-Shellcode.html)
-    - [payload on exploit-db](https://www.exploit-db.com/shellcodes/46736)
-- DEFCON Qualys 2019 : Speedrun-001 exploit (Stack-based bof + ROP) [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x17-defcon-qualys-2019/speedrun-001-exploit.py)
+    - [payload on exploit-db](https://www.exploit-db.com/shellcodes/46736)  
+- Solving MalwareTech String Challenges With Some Radare2 Magic!: [writeup](https://medium.com/syscall59/solving-malwaretech-string-challenges-with-some-radare2-magic-98ebd8ff0b88)
+- Solving MalwareTech Shellcode Challenges With Some Radare2 Magic!: [writeup][WIP]  
+- DEFCON Qualys 2019 : Speedrun-001 exploit (Stack-based bof + ROP): [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x17-defcon-qualys-2019/speedrun-001-exploit.py)
 
 
 ### Resources:
