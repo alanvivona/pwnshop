@@ -36,8 +36,8 @@ Notes, cheatsheets, shellcode and exploits.
     - [writeup](https://medium.com/syscall59/shellcode-for-iot-a-password-protected-reverse-shell-linux-arm-a18fcda4853b)
     - [payload on packetstormsecurity](https://packetstormsecurity.com/files/152602/Linux-ARM-Password-Protected-Reverse-TCP-Shell-Shellcode.html)
     - [payload on exploit-db](https://www.exploit-db.com/shellcodes/46736)  
-- Solving MalwareTech String Challenges With Some Radare2 Magic!: [writeup](https://medium.com/syscall59/solving-malwaretech-string-challenges-with-some-radare2-magic-98ebd8ff0b88)
-- Solving MalwareTech Shellcode Challenges With Some Radare2 Magic!: [writeup](http://medium.syscall59.com/solving-malwaretech-shellcode-challenges-with-some-radare2-magic-b91c85babe4b)  
+- MalwareTech's String Challenges crackmes: [writeup](https://medium.com/syscall59/solving-malwaretech-string-challenges-with-some-radare2-magic-98ebd8ff0b88)
+- MalwareTech's Shellcode Challenges crackmes: [writeup](http://medium.syscall59.com/solving-malwaretech-shellcode-challenges-with-some-radare2-magic-b91c85babe4b)  
 - DEFCON Qualys 2019 : Speedrun-001 exploit (Stack-based bof + ROP): [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x17-defcon-qualys-2019/speedrun-001-exploit.py)
 
 
