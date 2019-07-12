@@ -2,7 +2,8 @@
 Notes, cheatsheets, shellcode and exploits.
 
 ## Contents:
-- Reverse engineering a simple crackme called “Just see”: [writeup](https://medium.com/@0x0FFB347/crackme-just-see-c6dda1edb9fb) 
+- Reverse engineering a simple crackme called “Just see”: [writeup](https://medium.com/@0x0FFB347/crackme-just-see-c6dda1edb9fb)
+- Reverse engineering a level 1 crackme "Easy_firstCrackme-by-D4RK_FL0W": [writeup](https://medium.com/syscall59/reverse-engineering-easy-firstcrackme-by-d4rk-fl0w-73dd4412bca5?source=your_stories_page---------------------------)  
 - Utility - Object/Executable file to shellcode converter script: [code](https://github.com/alanvivona/pwnshop/blob/master/utils/obj2shellcode)    
 - Utility - Assembly and link script : [code](https://github.com/alanvivona/pwnshop/blob/master/utils/asm-and-link)    
 - Utility - Shellcode testing skeleton generator : [code](https://github.com/alanvivona/pwnshop/blob/master/utils/gen-shellcode-test)    
