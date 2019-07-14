@@ -58,3 +58,4 @@ There's a **LOT** of stuff out there. These are just the most useful things I've
 - [Attacking network protocols](https://nostarch.com/networkprotocols)
 - [Pentester academy](https://www.pentesteracademy.com/)
 - [Penetration testing: A Hands-On introduction to hacking](https://www.amazon.com/Penetration-Testing-Hands-Introduction-Hacking/dp/1593275641)
+- [Malware Unicorn](https://malwareunicorn.org/#/workshops)  
