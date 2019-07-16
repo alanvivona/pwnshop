@@ -41,13 +41,13 @@ Notes, cheatsheets, shellcode and exploits.
 ### Tools:
 A non-exhaustive list of tools I like to use
 - radare2
-- - Cutter
+    - Cutter
 - Ghidra
 - x64dbg
 - frida
 - gdb
-- - gdb-dashboard
-- - peda
+    - gdb-dashboard
+    - peda
 - valgrind
 - Pwntools
 - ltrace
