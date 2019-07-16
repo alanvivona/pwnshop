@@ -38,6 +38,24 @@ Notes, cheatsheets, shellcode and exploits.
 - MalwareTech's Shellcode Challenges crackmes: [writeup](http://medium.syscall59.com/solving-malwaretech-shellcode-challenges-with-some-radare2-magic-b91c85babe4b)  
 - DEFCON Qualys 2019 : Speedrun-001 exploit (Stack-based bof + ROP): [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x17-defcon-qualys-2019/speedrun-001-exploit.py)
 
+### Tools:
+A non-exhaustive list of tools I like to use
+- radare2
+- - Cutter
+- Ghidra
+- x64dbg
+- frida
+- gdb
+- - gdb-dashboard
+- - peda
+- valgrind
+- Pwntools
+- ltrace
+- ltrace
+- hexdump
+- xxd
+- binwalk
+- Wireshark
 
 ### Resources:
 There's a **LOT** of stuff out there. These are just the most useful things I've found so far. I only list stuff that I have already seen/read/used.  
