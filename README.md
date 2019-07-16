@@ -48,7 +48,7 @@ A non-exhaustive list of tools I like to use
 - frida
 - gdb
     - gdb-dashboard
-    - peda
+    - gef
 - valgrind
 - Pwntools
 - ltrace
