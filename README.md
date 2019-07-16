@@ -46,14 +46,11 @@ Check out my [blog](http://medium.syscall59.com) and follow me on [Twitter](http
 
 ### Tools:
 A non-exhaustive list of tools I like to use
-- [radare2](https://rada.re)
-    - [Cutter](https://github.com/radareorg/cutter)
+- [radare2](https://rada.re) (+[Cutter](https://github.com/radareorg/cutter) +[r2frida](https://github.com/nowsecure/r2frida) +[r2pipe](https://github.com/radare/radare2-r2pipe))
 - [Ghidra](https://ghidra-sre.org/)
 - [x64dbg](https://x64dbg.com)
 - [frida](https://www.frida.re/)
-- [gdb](https://www.gnu.org/software/gdb/)
-    - [gdb-dashboard](https://github.com/cyrus-and/gdb-dashboard)
-    - [GEF](https://github.com/hugsy/gef)
+- [gdb](https://www.gnu.org/software/gdb/) (+[gdb-dashboard](https://github.com/cyrus-and/gdb-dashboard) +[GEF](https://github.com/hugsy/gef))
 - [Valgrind](http://www.valgrind.org/)
 - [Pwntools](http://pwntools.com)
 - [Wireshark](https://www.wireshark.org/)
@@ -88,3 +85,4 @@ There's a **LOT** of stuff out there. These are just the most useful things I've
 - [Pentester academy](https://www.pentesteracademy.com/)
 - [Penetration testing: A Hands-On introduction to hacking](https://www.amazon.com/Penetration-Testing-Hands-Introduction-Hacking/dp/1593275641)
 - [Malware Unicorn](https://malwareunicorn.org/#/workshops)  
+- [Radare2 Book](https://radare.gitbooks.io/radare2book/)  
