@@ -1,0 +1,22 @@
+# set up relative breakpoints
+db sym.check_code_int+0x00001289-0x00001265
+db sym.check_code_int+0x000012b7-0x00001265
+db sym.check_code_int+0x000012e2-0x00001265
+db sym.check_code_int+0x0000130d-0x00001265
+
+# continue
+dc
+
+# input four digits (doesn't matter which ones)
+1
+1
+1
+1
+
+# define a macro replacing the ebx value with the contents of eax and store the value into a file
+!rm ./crack_code
+(eax_replace, dr ebx=`dr eax` | tee -a crack_code, dc)
+.(eax_replace )@@=0 1 2 3
+
+# show the results
+!cat ./crack_code
