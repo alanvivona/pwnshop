@@ -1,5 +1,7 @@
 # pwnshop
-Notes, cheatsheets, shellcode and exploits.
+> Notes, cheatsheets, shellcode and exploits.
+
+Check out my [blog](http://medium.syscall59.com) and follow me on [Twitter](https://twitter.com/syscall59).
 
 ## Contents:
 - Reverse engineering a simple crackme called “Just see”: [writeup](https://medium.com/@0x0FFB347/crackme-just-see-c6dda1edb9fb)
@@ -40,24 +42,31 @@ Notes, cheatsheets, shellcode and exploits.
 - Solution for the crackme "Crackme2-be-D4RK_FL0W" [writeup](https://medium.com/syscall59/reverse-engineering-crackme2-be-d4rk-fl0w-walkthrough-ea50b851b5f0)  
 - Solution for the crackme "Crack3-by-D4RK_FL0W" [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x19-crackme-darkflow-3/r2.commands), [writeup]()  
 
+## Useful links:
+
 ### Tools:
 A non-exhaustive list of tools I like to use
-- radare2
-    - Cutter
-- Ghidra
-- x64dbg
-- frida
-- gdb
-    - gdb-dashboard
-    - gef
-- valgrind
-- Pwntools
-- ltrace
+- [radare2](https://rada.re)
+    - [Cutter](https://github.com/radareorg/cutter)
+- [Ghidra](https://ghidra-sre.org/)
+- [x64dbg](https://x64dbg.com)
+- [frida](https://www.frida.re/)
+- [gdb](https://www.gnu.org/software/gdb/)
+    - [gdb-dashboard](https://github.com/cyrus-and/gdb-dashboard)
+    - [GEF](https://github.com/hugsy/gef)
+- [Valgrind](http://www.valgrind.org/)
+- [Pwntools](http://pwntools.com)
+- [Wireshark](https://www.wireshark.org/)
+- [Binwalk](https://github.com/ReFirmLabs/binwalk)
+- strace
 - ltrace
 - hexdump
 - xxd
-- binwalk
-- Wireshark
+- [rappel](https://github.com/yrp604/rappel)
+- nasm
+- gas
+
+
 
 ### Resources:
 There's a **LOT** of stuff out there. These are just the most useful things I've found so far. I only list stuff that I have already seen/read/used.  
