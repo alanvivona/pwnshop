@@ -1,5 +1,5 @@
 # pwnshop
-> Notes, cheatsheets, shellcode and exploits.
+> Reverse Engineering, shellcode & exploits.
 
 Check out my [blog](http://medium.syscall59.com) and follow me on [Twitter](https://twitter.com/syscall59).
 
