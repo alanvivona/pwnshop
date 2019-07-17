@@ -106,123 +106,123 @@ def reset():
     emu.reg_write(unicorn.x86_const.UC_X86_REG_GS, 0x0)
     # Mapping /home/h3y/Downloads/crackmes/crack3-by-D4RK_FL0W: 0x555555554000-0x555555555000
     emu.mem_map(0x555555554000, 0x1000, 0o1)
-    emu.mem_write(0x555555554000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x555555554000.raw', 'rb').read())
+    emu.mem_write(0x555555554000, open('./gef-crack3-by-D4RK_FL0W-0x555555554000.raw', 'rb').read())
 
     # Mapping /home/h3y/Downloads/crackmes/crack3-by-D4RK_FL0W: 0x555555555000-0x555555556000
     emu.mem_map(0x555555555000, 0x1000, 0o5)
-    emu.mem_write(0x555555555000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x555555555000.raw', 'rb').read())
+    emu.mem_write(0x555555555000, open('./gef-crack3-by-D4RK_FL0W-0x555555555000.raw', 'rb').read())
 
     # Mapping /home/h3y/Downloads/crackmes/crack3-by-D4RK_FL0W: 0x555555556000-0x555555557000
     emu.mem_map(0x555555556000, 0x1000, 0o1)
-    emu.mem_write(0x555555556000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x555555556000.raw', 'rb').read())
+    emu.mem_write(0x555555556000, open('./gef-crack3-by-D4RK_FL0W-0x555555556000.raw', 'rb').read())
 
     # Mapping /home/h3y/Downloads/crackmes/crack3-by-D4RK_FL0W: 0x555555557000-0x555555558000
     emu.mem_map(0x555555557000, 0x1000, 0o1)
-    emu.mem_write(0x555555557000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x555555557000.raw', 'rb').read())
+    emu.mem_write(0x555555557000, open('./gef-crack3-by-D4RK_FL0W-0x555555557000.raw', 'rb').read())
 
     # Mapping /home/h3y/Downloads/crackmes/crack3-by-D4RK_FL0W: 0x555555558000-0x555555559000
     emu.mem_map(0x555555558000, 0x1000, 0o3)
-    emu.mem_write(0x555555558000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x555555558000.raw', 'rb').read())
+    emu.mem_write(0x555555558000, open('./gef-crack3-by-D4RK_FL0W-0x555555558000.raw', 'rb').read())
 
     # Mapping [heap]: 0x555555559000-0x55555557a000
     emu.mem_map(0x555555559000, 0x21000, 0o3)
-    emu.mem_write(0x555555559000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x555555559000.raw', 'rb').read())
+    emu.mem_write(0x555555559000, open('./gef-crack3-by-D4RK_FL0W-0x555555559000.raw', 'rb').read())
 
     # Mapping /lib/x86_64-linux-gnu/libc-2.27.so: 0x7ffff70a5000-0x7ffff728c000
     emu.mem_map(0x7ffff70a5000, 0x1e7000, 0o5)
-    emu.mem_write(0x7ffff70a5000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff70a5000.raw', 'rb').read())
+    emu.mem_write(0x7ffff70a5000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff70a5000.raw', 'rb').read())
 
     # Mapping /lib/x86_64-linux-gnu/libc-2.27.so: 0x7ffff728c000-0x7ffff748c000
     emu.mem_map(0x7ffff728c000, 0x200000, 0o0)
     # Mapping /lib/x86_64-linux-gnu/libc-2.27.so: 0x7ffff748c000-0x7ffff7490000
     emu.mem_map(0x7ffff748c000, 0x4000, 0o1)
-    emu.mem_write(0x7ffff748c000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff748c000.raw', 'rb').read())
+    emu.mem_write(0x7ffff748c000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff748c000.raw', 'rb').read())
 
     # Mapping /lib/x86_64-linux-gnu/libc-2.27.so: 0x7ffff7490000-0x7ffff7492000
     emu.mem_map(0x7ffff7490000, 0x2000, 0o3)
-    emu.mem_write(0x7ffff7490000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff7490000.raw', 'rb').read())
+    emu.mem_write(0x7ffff7490000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff7490000.raw', 'rb').read())
 
     # Mapping : 0x7ffff7492000-0x7ffff7496000
     emu.mem_map(0x7ffff7492000, 0x4000, 0o3)
-    emu.mem_write(0x7ffff7492000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff7492000.raw', 'rb').read())
+    emu.mem_write(0x7ffff7492000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff7492000.raw', 'rb').read())
 
     # Mapping /lib/x86_64-linux-gnu/libgcc_s.so.1: 0x7ffff7496000-0x7ffff74ad000
     emu.mem_map(0x7ffff7496000, 0x17000, 0o5)
-    emu.mem_write(0x7ffff7496000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff7496000.raw', 'rb').read())
+    emu.mem_write(0x7ffff7496000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff7496000.raw', 'rb').read())
 
     # Mapping /lib/x86_64-linux-gnu/libgcc_s.so.1: 0x7ffff74ad000-0x7ffff76ac000
     emu.mem_map(0x7ffff74ad000, 0x1ff000, 0o0)
     # Mapping /lib/x86_64-linux-gnu/libgcc_s.so.1: 0x7ffff76ac000-0x7ffff76ad000
     emu.mem_map(0x7ffff76ac000, 0x1000, 0o1)
-    emu.mem_write(0x7ffff76ac000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff76ac000.raw', 'rb').read())
+    emu.mem_write(0x7ffff76ac000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff76ac000.raw', 'rb').read())
 
     # Mapping /lib/x86_64-linux-gnu/libgcc_s.so.1: 0x7ffff76ad000-0x7ffff76ae000
     emu.mem_map(0x7ffff76ad000, 0x1000, 0o3)
-    emu.mem_write(0x7ffff76ad000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff76ad000.raw', 'rb').read())
+    emu.mem_write(0x7ffff76ad000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff76ad000.raw', 'rb').read())
 
     # Mapping /lib/x86_64-linux-gnu/libm-2.27.so: 0x7ffff76ae000-0x7ffff784b000
     emu.mem_map(0x7ffff76ae000, 0x19d000, 0o5)
-    emu.mem_write(0x7ffff76ae000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff76ae000.raw', 'rb').read())
+    emu.mem_write(0x7ffff76ae000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff76ae000.raw', 'rb').read())
 
     # Mapping /lib/x86_64-linux-gnu/libm-2.27.so: 0x7ffff784b000-0x7ffff7a4a000
     emu.mem_map(0x7ffff784b000, 0x1ff000, 0o0)
     # Mapping /lib/x86_64-linux-gnu/libm-2.27.so: 0x7ffff7a4a000-0x7ffff7a4b000
     emu.mem_map(0x7ffff7a4a000, 0x1000, 0o1)
-    emu.mem_write(0x7ffff7a4a000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff7a4a000.raw', 'rb').read())
+    emu.mem_write(0x7ffff7a4a000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff7a4a000.raw', 'rb').read())
 
     # Mapping /lib/x86_64-linux-gnu/libm-2.27.so: 0x7ffff7a4b000-0x7ffff7a4c000
     emu.mem_map(0x7ffff7a4b000, 0x1000, 0o3)
-    emu.mem_write(0x7ffff7a4b000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff7a4b000.raw', 'rb').read())
+    emu.mem_write(0x7ffff7a4b000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff7a4b000.raw', 'rb').read())
 
     # Mapping /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25: 0x7ffff7a4c000-0x7ffff7bc5000
     emu.mem_map(0x7ffff7a4c000, 0x179000, 0o5)
-    emu.mem_write(0x7ffff7a4c000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff7a4c000.raw', 'rb').read())
+    emu.mem_write(0x7ffff7a4c000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff7a4c000.raw', 'rb').read())
 
     # Mapping /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25: 0x7ffff7bc5000-0x7ffff7dc5000
     emu.mem_map(0x7ffff7bc5000, 0x200000, 0o0)
     # Mapping /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25: 0x7ffff7dc5000-0x7ffff7dcf000
     emu.mem_map(0x7ffff7dc5000, 0xa000, 0o1)
-    emu.mem_write(0x7ffff7dc5000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff7dc5000.raw', 'rb').read())
+    emu.mem_write(0x7ffff7dc5000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff7dc5000.raw', 'rb').read())
 
     # Mapping /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25: 0x7ffff7dcf000-0x7ffff7dd1000
     emu.mem_map(0x7ffff7dcf000, 0x2000, 0o3)
-    emu.mem_write(0x7ffff7dcf000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff7dcf000.raw', 'rb').read())
+    emu.mem_write(0x7ffff7dcf000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff7dcf000.raw', 'rb').read())
 
     # Mapping : 0x7ffff7dd1000-0x7ffff7dd5000
     emu.mem_map(0x7ffff7dd1000, 0x4000, 0o3)
-    emu.mem_write(0x7ffff7dd1000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff7dd1000.raw', 'rb').read())
+    emu.mem_write(0x7ffff7dd1000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff7dd1000.raw', 'rb').read())
 
     # Mapping /lib/x86_64-linux-gnu/ld-2.27.so: 0x7ffff7dd5000-0x7ffff7dfc000
     emu.mem_map(0x7ffff7dd5000, 0x27000, 0o5)
-    emu.mem_write(0x7ffff7dd5000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff7dd5000.raw', 'rb').read())
+    emu.mem_write(0x7ffff7dd5000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff7dd5000.raw', 'rb').read())
 
     # Mapping : 0x7ffff7fc5000-0x7ffff7fcb000
     emu.mem_map(0x7ffff7fc5000, 0x6000, 0o3)
-    emu.mem_write(0x7ffff7fc5000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff7fc5000.raw', 'rb').read())
+    emu.mem_write(0x7ffff7fc5000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff7fc5000.raw', 'rb').read())
 
     # Mapping [vdso]: 0x7ffff7ffa000-0x7ffff7ffc000
     emu.mem_map(0x7ffff7ffa000, 0x2000, 0o5)
-    emu.mem_write(0x7ffff7ffa000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff7ffa000.raw', 'rb').read())
+    emu.mem_write(0x7ffff7ffa000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff7ffa000.raw', 'rb').read())
 
     # Mapping /lib/x86_64-linux-gnu/ld-2.27.so: 0x7ffff7ffc000-0x7ffff7ffd000
     emu.mem_map(0x7ffff7ffc000, 0x1000, 0o1)
-    emu.mem_write(0x7ffff7ffc000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff7ffc000.raw', 'rb').read())
+    emu.mem_write(0x7ffff7ffc000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff7ffc000.raw', 'rb').read())
 
     # Mapping /lib/x86_64-linux-gnu/ld-2.27.so: 0x7ffff7ffd000-0x7ffff7ffe000
     emu.mem_map(0x7ffff7ffd000, 0x1000, 0o3)
-    emu.mem_write(0x7ffff7ffd000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff7ffd000.raw', 'rb').read())
+    emu.mem_write(0x7ffff7ffd000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff7ffd000.raw', 'rb').read())
 
     # Mapping : 0x7ffff7ffe000-0x7ffff7fff000
     emu.mem_map(0x7ffff7ffe000, 0x1000, 0o3)
-    emu.mem_write(0x7ffff7ffe000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffff7ffe000.raw', 'rb').read())
+    emu.mem_write(0x7ffff7ffe000, open('./gef-crack3-by-D4RK_FL0W-0x7ffff7ffe000.raw', 'rb').read())
 
     # Mapping [stack]: 0x7ffffffde000-0x7ffffffff000
     emu.mem_map(0x7ffffffde000, 0x21000, 0o3)
-    emu.mem_write(0x7ffffffde000, open('/tmp/gef-crack3-by-D4RK_FL0W-0x7ffffffde000.raw', 'rb').read())
+    emu.mem_write(0x7ffffffde000, open('./gef-crack3-by-D4RK_FL0W-0x7ffffffde000.raw', 'rb').read())
 
     # Mapping [vsyscall]: 0xffffffffff600000-0xffffffffff601000
     emu.mem_map(0xffffffffff600000, 0x1000, 0o5)
-    emu.mem_write(0xffffffffff600000, open('/tmp/gef-crack3-by-D4RK_FL0W-0xffffffffff600000.raw', 'rb').read())
+    emu.mem_write(0xffffffffff600000, open('./gef-crack3-by-D4RK_FL0W-0xffffffffff600000.raw', 'rb').read())
 
     emu.hook_add(unicorn.UC_HOOK_CODE, code_hook)
     emu.hook_add(unicorn.UC_HOOK_INTR, intr_hook)
@@ -248,6 +248,14 @@ def emulate(emu, start_addr, end_addr, print_debug=False):
         print_regs(emu, registers)
     return
 
+# unicorn-engine script generated by gef
+
+# ==========================================================================================
+
+#                                   OUR CODE STARTS HERE
+
+# ==========================================================================================
+
 import itertools
 import subprocess
 
@@ -258,22 +266,23 @@ for chance in itertools.product(range(10), repeat=4):
     emu = reset()
 
     # [gdb] x/4w $rax
-    emu.mem_write(0x5555555583c0,   b"\x00\x00\x00"+bytes.fromhex(str(chance[0]).zfill(2)))
-    emu.mem_write(0x5555555583c0,   b"\x00\x00\x00"+bytes.fromhex(str(chance[1]).zfill(2)))
-    emu.mem_write(0x5555555583c0,   b"\x00\x00\x00"+bytes.fromhex(str(chance[2]).zfill(2)))
-    emu.mem_write(0x5555555583c0,   b"\x00\x00\x00"+bytes.fromhex(str(chance[3]).zfill(2)))
+    emu.mem_write(0x5555555583c0,   bytes.fromhex(str(chance[0]).zfill(2))+b"\x00\x00\x00")
+    emu.mem_write(0x5555555583c0+4, bytes.fromhex(str(chance[1]).zfill(2))+b"\x00\x00\x00")
+    emu.mem_write(0x5555555583c0+8, bytes.fromhex(str(chance[2]).zfill(2))+b"\x00\x00\x00")
+    emu.mem_write(0x5555555583c0+12,bytes.fromhex(str(chance[3]).zfill(2))+b"\x00\x00\x00")
 
     emulate(emu, 0x555555555269, 0x555555555328)
+
+    first_pin_code = emu.mem_read(0x5555555583c0, 16)
 
     rax_value = emu.reg_read(unicorn.x86_const.UC_X86_REG_RAX)
     rbx_value = emu.reg_read(unicorn.x86_const.UC_X86_REG_RBX)
 
     print("=================================================")
-    message = "RESULT for emulation "+str(chance)+"="+str(rax_value)+"|"+str(rbx_value)+"\n"
+    message = "RESULT for emulation "+str(chance)+"="+str(rax_value)+"\n"
     print(message)
     logs_file.write(message)
     logs_file.flush()
-    
     print("=================================================")
 
     if rax_value == 1 or rbx_value == 1:
@@ -281,5 +290,3 @@ for chance in itertools.product(range(10), repeat=4):
         print("FOUND CRACK CODE = "+str(chance))
         print("=================================================")
         exit()
-
-# unicorn-engine script generated by gef
