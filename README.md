@@ -65,6 +65,7 @@ A non-exhaustive list of tools I like to use
 - [rappel](https://github.com/yrp604/rappel)
 - nasm
 - gas
+- [Unicorn Engine](https://www.unicorn-engine.org/)
 
 
 
