@@ -1,5 +1,5 @@
 # pwnshop
-> Reverse Engineering, shellcode & exploits.
+> Reverse Engineering and Exploitation.
 
 Check out my [blog](http://medium.syscall59.com) and follow me on [Twitter](https://twitter.com/syscall59).
 
