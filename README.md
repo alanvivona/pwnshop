@@ -45,6 +45,7 @@ Check out my [blog](http://medium.syscall59.com) and follow me on [Twitter](http
     - Option 1 - Using r2 macros to extract the PIN: [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x19-crackme-darkflow-3/r2.commands)  
     - Option 2 - Using GEF and unicorn-engine emulation to bruteforce the PIN: [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x19-crackme-darkflow-3/emu.py)
     - Blog post exploring both options: [writeup](https://medium.com/syscall59/re-using-macros-emulation-voodo-to-solve-a-crackme-a90566e9c7c9)  
+- Utility - r2frida Cheatsheet: [writeup](https://github.com/alanvivona/pwnshop/blob/master/utils/r2frida-cheatsheet.md)  
 
 ## Useful links:
 
