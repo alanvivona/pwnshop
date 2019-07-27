@@ -6,7 +6,7 @@
 
 # usage :
 # sample binary taken from : https://crackmes.one/crackme/5c79727733c5d4776a837d80
-# gdb --command gdb-script-template.py ../crackmes/Sh4ll9/sh4ll9.bin
+# gdb --command gdb-script-template.py sh4ll9.bin
 
 import gdb
 
