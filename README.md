@@ -21,7 +21,7 @@ Check out my [blog](http://medium.syscall59.com), follow me on [Twitter](https:/
 - Execve shellcode (stack method) : [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x0A-execve-stack/execvestack.nasm)  
 - Execve shellcode using RIP relative addressing [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x0B-execve-rip-relative-addressing/execve-rip-relative.nasm)  
 - Password Protected Bind Shell (Linux/x64) [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x0D-SLAE64-1-tcp-bind-shell-auth/tcp-bind-shell-auth-smaller.nasm), [writeup](https://medium.com/bugbountywriteup/writing-a-password-protected-bind-shell-linux-x64-e052d2f65ff2)  
-- Password Protected Reverse Shell (Linux/x64) [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x0E-SLAE64-2-reverse-tcp-auth/reverse-tcp-with-auth.nasm), [writeup](https://medium.com/@0x0FFB347/writing-a-password-protected-reverse-shell-linux-x64-5f4d3a28d91a)  
+- Password Protected Reverse Shell (Linux/x64) [code](https://github.com/alanvivona/pwnshop/blob/master/src/0x0E-SLAE64-2-reverse-tcp-auth/reverse-tcp-with-auth.nasm), [writeup](https://medium.com/@0x0FFB347/writing-a-password-protected-reverse-shell-linux-x64-5f4d3a28d91a), [Featured in the 1st number of Paged-Out](https://pagedout.institute/download/PagedOut_001_beta1.pdf)  
 - XANAX - A custom shellcode encoder written in assembly :  
     - [encoder code](https://github.com/alanvivona/pwnshop/blob/master/src/0x10-SLAE64-4-custom-encoder/xanax-encoder.nasm)  
     - [encoder on exploit-db](https://www.exploit-db.com/shellcodes/46679)  
@@ -94,3 +94,4 @@ There's a **LOT** of stuff out there. These are just the most useful things I've
 - [Penetration testing: A Hands-On introduction to hacking](https://www.amazon.com/Penetration-Testing-Hands-Introduction-Hacking/dp/1593275641)
 - [Malware Unicorn](https://malwareunicorn.org/#/workshops)  
 - [Radare2 Book](https://radare.gitbooks.io/radare2book/)  
+- [Paged-Out!](https://pagedout.institute)
