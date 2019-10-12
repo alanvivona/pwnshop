@@ -72,6 +72,7 @@ A non-exhaustive list of tools I like to use
 - [Unicorn Engine](https://www.unicorn-engine.org/)
 - [IDA](https://www.hex-rays.com/products/ida/index.shtml)  
 - hexedit  
+- bless  
 
 
 
