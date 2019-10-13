@@ -99,3 +99,5 @@ There's a **LOT** of stuff out there. These are just the most useful things I've
 - :book: [PoC||GTFO I](https://amzn.to/2MDgz3l)  
 - :book: [PoC||GTFO II](https://amzn.to/2AS4uBP)  
 - :book: [The IDA Pro Book](https://amzn.to/2LXnKUE)  
+- :book: [Hacker Disassembling Uncovered](https://amzn.to/2nLew4I)  
+- :computer: [Reverse Engineering Stackexchange](https://reverseengineering.stackexchange.com/)  
