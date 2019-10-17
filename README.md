@@ -1,7 +1,7 @@
 # pwnshop
 > Reverse Engineering and Exploitation.
 
-Check out my [blog](http://medium.syscall59.com), follow me on [Twitter](https://twitter.com/syscall59)!  
+Check out my [blog](http://medium.syscall59.com), follow me on [Twitter](https://twitter.com/syscall59) and [Youtube](https://www.youtube.com/channel/UC2lZwxYDEAgQod3D4JqxLfg)!  
 ### Support the project :  
 <a href="https://www.buymeacoffee.com/syscall59" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
