@@ -52,11 +52,11 @@ Check out my [blog](http://medium.syscall59.com), follow me on [Twitter](https:/
 ## Useful links:
 
 ### Tools:
-A non-exhaustive list of tools I like to use
-- [radare2](https://rada.re) (+[Cutter](https://github.com/radareorg/cutter) +[r2frida](https://github.com/nowsecure/r2frida) +[r2pipe](https://github.com/radare/radare2-r2pipe))
+A non-exhaustive list of tools  
+- [radare2](https://rada.re) (+[Cutter](https://github.com/radareorg/cutter) +[r2frida](https://github.com/nowsecure/r2frida) +[r2pipe](https://github.com/radare/radare2-r2pipe) +[r2ghidra-dec](https://github.com/radareorg/r2ghidra-dec))
 - [Ghidra](https://ghidra-sre.org/)
 - [x64dbg](https://x64dbg.com)
-- [frida](https://www.frida.re/)
+- [Frida](https://www.frida.re/)
 - [gdb](https://www.gnu.org/software/gdb/) (+[gdb-dashboard](https://github.com/cyrus-and/gdb-dashboard) +[GEF](https://github.com/hugsy/gef))
 - [Valgrind](http://www.valgrind.org/)
 - [Pwntools](http://pwntools.com)
@@ -73,6 +73,7 @@ A non-exhaustive list of tools I like to use
 - [IDA](https://www.hex-rays.com/products/ida/index.shtml)  
 - hexedit  
 - bless  
+- Metasploit (https://www.metasploit.com/)  
 
 
 
