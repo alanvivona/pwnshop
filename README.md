@@ -50,6 +50,7 @@ Check out my [blog](http://medium.syscall59.com), follow me on [Twitter](https:/
 - Utility - r2frida Cheatsheet: [writeup](https://github.com/alanvivona/pwnshop/blob/master/utils/r2frida-cheatsheet.md)  
 - Solution for the crackme "alien_bin" [writeup](https://medium.com/syscall59/reverse-engineering-cracking-alien-technology-7acddcb561b)  
 - Automated solutions for the crackme "mexican": [writeup](https://medium.com/syscall59/solved-solving-mexican-crackme-82d71a28e189), [script solution 1: carving](https://github.com/alanvivona/pwnshop/blob/master/src/0x1A/s1-static-extract-from-code.py), [script solution 2: patching](https://github.com/alanvivona/pwnshop/blob/master/src/0x1A/s2-binary-patching.py)   
+- Writeup for the crackme "crackme_by_coulomb" (.net): [writeup](https://medium.com/syscall59/reverse-engineering-solving-my-first-net-crackme-dacf2e59ad3b)   
 
 
 ## Useful links:
