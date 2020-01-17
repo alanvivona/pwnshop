@@ -51,6 +51,9 @@ Check out my [blog](http://medium.syscall59.com), follow me on [Twitter](https:/
 - Solution for the crackme "alien_bin" [writeup](https://medium.com/syscall59/reverse-engineering-cracking-alien-technology-7acddcb561b)  
 - Automated solutions for the crackme "mexican": [writeup](https://medium.com/syscall59/solved-solving-mexican-crackme-82d71a28e189), [script solution 1: carving](https://github.com/alanvivona/pwnshop/blob/master/src/0x1A/s1-static-extract-from-code.py), [script solution 2: patching](https://github.com/alanvivona/pwnshop/blob/master/src/0x1A/s2-binary-patching.py)   
 - Writeup for the crackme "crackme_by_coulomb" (.net): [writeup](https://medium.com/syscall59/reverse-engineering-solving-my-first-net-crackme-dacf2e59ad3b)   
+- Writeup for the crackme "shadows_registerme" (.net): [writeup](https://medium.com/syscall59/reverse-engineering-and-cracking-a-net-binary-using-dnspy-4b88c692a6ff)   
+- Writeup for the crackme "removemytrial_by_coulomb" (.net): [writeup](https://medium.com/bugbountywriteup/reverse-engineering-beating-a-trial-on-a-net-crackme-d4ab6604f10b)   
+- Writeup for the crackme "Get The Password": [writeup](WIP), [code (keygen)](https://github.com/alanvivona/pwnshop/blob/master/src/0x1C-HN1-Crackme1-GetThePassword/solve.py)  
 
 
 ## Useful links:
