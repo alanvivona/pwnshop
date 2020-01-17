@@ -53,7 +53,7 @@ Check out my [blog](http://medium.syscall59.com), follow me on [Twitter](https:/
 - Writeup for the crackme "crackme_by_coulomb" (.net): [writeup](https://medium.com/syscall59/reverse-engineering-solving-my-first-net-crackme-dacf2e59ad3b)   
 - Writeup for the crackme "shadows_registerme" (.net): [writeup](https://medium.com/syscall59/reverse-engineering-and-cracking-a-net-binary-using-dnspy-4b88c692a6ff)   
 - Writeup for the crackme "removemytrial_by_coulomb" (.net): [writeup](https://medium.com/bugbountywriteup/reverse-engineering-beating-a-trial-on-a-net-crackme-d4ab6604f10b)   
-- Writeup for the crackme "Get The Password": [writeup](WIP), [code (keygen)](https://github.com/alanvivona/pwnshop/blob/master/src/0x1C-HN1-Crackme1-GetThePassword/solve.py)  
+- Writeup for the crackme "Get The Password": [writeup](https://medium.com/bugbountywriteup/writing-a-keygen-using-python-itertools-1944cbb4d07c), [code (keygen)](https://github.com/alanvivona/pwnshop/blob/master/src/0x1C-HN1-Crackme1-GetThePassword/solve.py)  
 
 
 ## Useful links:
