@@ -1,0 +1,32 @@
+#!/usr/bin/python3
+
+import monkeyhex
+import sys
+import pprint
+import logging
+import itertools
+from tqdm import tqdm
+import base64
+
+import cryp_lib
+from Crypto.Cipher import AES
+
+logging.basicConfig(level=logging.INFO)
+
+if __name__ == "__main__":
+    
+    # ./decrypt 7.txt out.txt
+
+    input_ciphertext = b''
+    with open(sys.argv[1], "rb") as input_file:
+        input_ciphertext = base64.decodebytes(input_file.read())
+    logging.info(f"Read {len(input_ciphertext)} bytes from file")
+    
+    key =b"YELLOW SUBMARINE"
+
+    # Usingf AES, 16-bytes, no IV since is ECB mode
+    cipher = AES.new(key, AES.MODE_ECB)
+    cleartext = cipher.decrypt(input_ciphertext)
+
+    print(cleartext.decode())
+                

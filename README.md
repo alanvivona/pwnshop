@@ -55,6 +55,26 @@ Check out my [blog](http://medium.syscall59.com), follow me on [Twitter](https:/
 - Writeup for the crackme "removemytrial_by_coulomb" (.net): [writeup](https://medium.com/bugbountywriteup/reverse-engineering-beating-a-trial-on-a-net-crackme-d4ab6604f10b)   
 - Writeup for the crackme "Get The Password": [writeup](https://medium.com/bugbountywriteup/writing-a-keygen-using-python-itertools-1944cbb4d07c), [code (keygen)](https://github.com/alanvivona/pwnshop/blob/master/src/0x1C-HN1-Crackme1-GetThePassword/solve.py)  
 
+- Cyptopals Solutions: Set 1, Challenge 1. "Convert hex to base64":
+[code](https://github.com/alanvivona/pwnshop/blob/master/src/0x1D-cryptopals-se1-ch1/)  
+- Cyptopals Solutions: Set 1, Challenge 2. "Fixed XOR":
+[code](https://github.com/alanvivona/pwnshop/blob/master/src/0x1E-cryptopals-se1-ch2/)  
+- Cyptopals Solutions: Set 1, Challenge 3. "Single-byte XOR cipher":
+[code](https://github.com/alanvivona/pwnshop/blob/master/src/0x1F-cryptopals-se1-ch3/)  
+- Cyptopals Solutions: Set 1, Challenge 4. "Detect single-character XOR":
+[code](https://github.com/alanvivona/pwnshop/blob/master/src/0x20-cryptopals-se1-ch4/)  
+- Cyptopals Solutions: Set 1, Challenge 5. "Implement repeating-key XOR":
+[code](https://github.com/alanvivona/pwnshop/blob/master/src/0x21-cryptopals-se1-ch5/)  
+- Cyptopals Solutions: Set 1, Challenge 6. "Break repeating-key XOR":
+[code](https://github.com/alanvivona/pwnshop/blob/master/src/0x22-cryptopals-se1-ch6/)  
+- Cyptopals Solutions: Set 1, Challenge 7. "AES in ECB mode":
+[code](https://github.com/alanvivona/pwnshop/blob/master/src/0x23-cryptopals-se1-ch7/)  
+- Cyptopals Solutions: Set 1, Challenge 8. "Detect AES in ECB mode":
+[code](https://github.com/alanvivona/pwnshop/blob/master/src/0x24-cryptopals-se1-ch8/)  
+- Cyptopals Solutions: Set 2, Challenge 9. "Implement PKCS#7 padding":
+[code](https://github.com/alanvivona/pwnshop/blob/master/src/0x25-cryptopals-se2-ch9/)  
+- Cyptopals Solutions: Set 2, Challenge 15. "PKCS#7 padding validation":
+[code](https://github.com/alanvivona/pwnshop/blob/master/src/0x26-cryptopals-se2-ch15/)  
 
 ## Useful links:
 

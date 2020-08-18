@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+
+import BitVector
+import string
+import sys
+
+if __name__ == "__main__":
+    
+    # ./fixed-xor 1c0111001f010100061a024b53535009181c 686974207468652062756c6c277320657965
+    # should return
+    # 746865206b696420646f6e277420706c6179
+    # the kid don't play
+
+    input_str_a = sys.argv[1]
+    input_bv_a = BitVector.BitVector(hexstring=input_str_a)
+
+    input_str_b = sys.argv[2]
+    input_bv_b = BitVector.BitVector(hexstring=input_str_b) 
+
+    res = input_bv_a ^ input_bv_b
+
+    print(res.get_bitvector_in_hex())
+    print(res.get_bitvector_in_ascii())

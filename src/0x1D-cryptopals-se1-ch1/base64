@@ -1,0 +1,46 @@
+#!/usr/bin/python3
+
+import BitVector
+import string
+import sys
+
+BIT = 1
+SEXTET = 6 * BIT
+BYTE = 8 * BIT
+
+b64_char_space = string.ascii_uppercase + string.ascii_lowercase + "0123456789+/"
+
+def base64(input_bv):
+    b64 = ""
+
+    for i in range(0, len(input_bv), SEXTET):
+        if i+SEXTET > len(input_bv):
+            break
+        # print(f"taking bit form {i} to {i+6} of {len(input_bv)}")
+        six_bit_chunk = input_bv[i:i+SEXTET]
+        # print(f"6 bit chuck val : {int(six_bit_chunk)}")
+        b64 += b64_char_space[int(six_bit_chunk)]
+    
+    remaining_bits = len(input_bv) % SEXTET
+    if remaining_bits:
+        # we need padding
+        # print("we need padding")
+        remanent_bv = input_bv[-remaining_bits:] + BitVector.BitVector(size = SEXTET-remaining_bits)
+        # print(f"remanent : {remanent_bv}")
+        b64 += b64_char_space[int(remanent_bv)]
+
+        padding_len = int((SEXTET-remaining_bits)/2)
+        b64 += "="*padding_len
+    
+    return b64
+
+if __name__ == "__main__":
+    
+    # ./main.py 49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d
+    # should return
+    # SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t
+    # ./set1/ch1/main.py 49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d | base64 -d
+
+    input_str = sys.argv[1]
+    input_bv = BitVector.BitVector(hexstring=input_str)
+    print(base64(input_bv))

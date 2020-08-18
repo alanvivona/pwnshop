@@ -1,0 +1,50 @@
+#!/usr/bin/python3
+
+import binascii
+import monkeyhex
+import sys
+import pprint
+import logging
+import itertools
+from tqdm import tqdm
+import base64
+import collections
+import itertools
+
+import cryp_lib
+
+logging.basicConfig(level=logging.INFO)
+
+AES_keysize = 16
+DEEP = 3
+
+if __name__ == "__main__":
+    
+    # ./decrypt 6.txt out.txt
+
+    input_ciphertext = b''
+    with open(sys.argv[1], "rt") as input_file:
+        # decode base64
+        input_ciphertext = list(map(lambda line: bytes.fromhex(line), input_file.readlines()))
+    logging.info(f"Read {len(input_ciphertext)} lines from file")
+    
+    lines_with_reps = []
+    for line_i, line in enumerate(tqdm(input_ciphertext)):
+        blocks = []
+        for i in range(AES_keysize, len(line), AES_keysize):
+            blocks.append(line[i-AES_keysize:i-1])
+        block_count = collections.Counter(blocks)
+        sorted_count = block_count.most_common(len(block_count))
+        if sorted_count[0][1] > 1:
+            lines_with_reps.append({
+                'line': line,
+                'line_i': line_i,
+                'block_count': sorted_count,
+            })
+
+    for line in lines_with_reps:
+        print("="*80)
+        pprint.pprint(line)
+        print(f'''
+            Line with repetition is: {binascii.hexlify(line['line'])}
+        ''')

@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+
+import string
+import sys
+import pprint
+import logging
+import itertools
+logging.basicConfig(level=logging.DEBUG)
+
+BLOCK_SIZE = 20
+
+if __name__ == "__main__":
+    
+    # ./pkcs-padding "YELLOW SUBMARINE"
+    # should produce
+    # "YELLOW SUBMARINE\x04\x04\x04\x04"
+
+    def pkcs_padding(input_b):
+        padding_size = BLOCK_SIZE-len(input_b)
+        padding = bytes([ padding_size for b in range(padding_size) ])
+        return input_b + padding
+
+    input_b = bytes(sys.argv[1].encode())    
+    print(pkcs_padding(input_b))
+
+
+
+

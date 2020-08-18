@@ -1,0 +1,49 @@
+#!/usr/bin/python3
+
+import string
+import sys
+import pprint
+import logging
+import itertools
+import binascii
+logging.basicConfig(level=logging.DEBUG)
+
+BLOCK_SIZE = 20
+
+if __name__ == "__main__":
+    
+    # ./pkcs-padding-validate "YELLOW SUBMARINE\x04\x04\x04\x04"
+    # should produce
+    # "YELLOW SUBMARINE"
+    # "ICE ICE BABY\x05\x05\x05\x05" should rise an exception
+    # "ICE ICE BABY\x01\x02\x03\x04" should rise an exception
+
+    def pkcs_padding_vaidate(input_b):
+        padding_value = input_b[-1]
+        for p in range(-1, -int(padding_value)-1, -1):
+            print(f"{padding_value} =? {input_b[p]} ({p}/{len(input_b)})")
+            if padding_value != input_b[p]:
+                raise Exception("Invalid PKCS#7 padding")
+        return input_b[0:-padding_value]
+        
+    a = b"YELLOW SUBMARINE\x04\x04\x04\x04"
+    print(pkcs_padding_vaidate(a))
+
+    try:
+        b = b"ICE ICE BABY\x05\x05\x05\x05"
+        print(pkcs_padding_vaidate(b))    
+    except Exception:
+        print("b failed")
+    else:
+        raise Exception("b should have failed!")
+
+    try:
+        c = b"ICE ICE BABY\x01\x02\x03\x04"
+        print(pkcs_padding_vaidate(c))    
+    except Exception:
+        print("c failed")
+    else:
+        raise Exception("c should have failed!")
+
+
+
