@@ -1,5 +1,5 @@
 # pwnshop
-> Reverse Engineering and Exploitation.
+> Reverse Engineering, Exploitation & Crypto.
 
 Check out my [blog](http://medium.syscall59.com), follow me on [Twitter](https://twitter.com/syscall59) and [Youtube](https://www.youtube.com/channel/UC2lZwxYDEAgQod3D4JqxLfg)!  
 ### Support the project :  
@@ -109,3 +109,7 @@ There's a **LOT** of stuff out there. These are just the most useful things I've
 - :book: [The IDA Pro Book](https://amzn.to/2LXnKUE)  
 - :book: [Hacker Disassembling Uncovered](https://amzn.to/2nLew4I)  
 - :computer: [Reverse Engineering Stackexchange](https://reverseengineering.stackexchange.com/)  
+- :computer: [Cryptopals Challenges](https://cryptopals.com/)  
+- :book: [Cryptool Book](https://www.cryptool.org/images/ctp/documents/CT-Book-en.pdf)  
+- :book: [Crypto 101](https://github.com/crypto101/crypto101.github.io/raw/master/Crypto101.pdf)  
+- :book: [Cracking Codes With Python coldwind](http://inventwithpython.com/cracking/)  
