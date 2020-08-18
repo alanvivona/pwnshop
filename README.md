@@ -112,4 +112,4 @@ There's a **LOT** of stuff out there. These are just the most useful things I've
 - :computer: [Cryptopals Challenges](https://cryptopals.com/)  
 - :book: [Cryptool Book](https://www.cryptool.org/images/ctp/documents/CT-Book-en.pdf)  
 - :book: [Crypto 101](https://github.com/crypto101/crypto101.github.io/raw/master/Crypto101.pdf)  
-- :book: [Cracking Codes With Python coldwind](http://inventwithpython.com/cracking/)  
+- :book: [Cracking Codes With Python](http://inventwithpython.com/cracking/)  
