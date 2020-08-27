@@ -1,4 +1,4 @@
-# pwnshop
+# Pwnshop  [![HitCount](https://hits.dwyl.com/alanvivona/pwnshop.svg)](http://hits.dwyl.com/alanvivona/pwnshop)
 > Reverse Engineering, Exploitation & Crypto.
 
 Check out my [blog](http://medium.syscall59.com), follow me on [Twitter](https://twitter.com/syscall59) and [Youtube](https://www.youtube.com/channel/UC2lZwxYDEAgQod3D4JqxLfg)!  
